@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { COLORS, CONTACT_INFO } from '../../constants';
+import { COLORS, CONTACT_INFO, ASSETS } from '../../constants';
 import { Link } from 'react-router-dom';
 import { Clock, Phone, Mail } from 'lucide-react';
 
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
               className={`inline-block transition-all duration-500 transform ${isClicked ? 'scale-90' : 'hover:scale-110'}`}
             >
               <img 
-                src="https://www.erghoprev.com.br/assets/images/erghoprev-analises-ergonomicas-do-trabalho-em-curitiba-296x121.png" 
+                src={ASSETS.logo} 
                 alt="ErghoPrev Logo Footer" 
                 className="h-[100px] lg:h-[120px] w-auto object-contain brightness-125 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
               />

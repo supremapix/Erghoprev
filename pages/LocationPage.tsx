@@ -5,7 +5,7 @@ import VideoSection from '../components/Home/VideoSection';
 import Testimonials from '../components/Home/Testimonials';
 import FAQ from '../components/Home/FAQ';
 import ContactForm from '../components/Home/ContactForm';
-import { COLORS, CONTACT_INFO } from '../constants';
+import { COLORS, CONTACT_INFO, ASSETS } from '../constants';
 
 const LocationPage: React.FC = () => {
   const { location } = useParams<{ location: string }>();
@@ -17,24 +17,24 @@ const LocationPage: React.FC = () => {
   }, [decodedLocation]);
 
   const topics = [
-    { title: `Introdução à Ergonomia em ${decodedLocation}`, img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200" },
-    { title: `Serviços de Ergonomia oferecidos em ${decodedLocation}`, img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=1200" },
-    { title: `Análise Ergonômica do Trabalho (AET) em ${decodedLocation}`, img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200" },
-    { title: `Laudo Ergonômico (LET) para empresas de ${decodedLocation}`, img: "https://images.unsplash.com/photo-1554224155-1696413565d3?w=1200" },
-    { title: `Ergonomia para Home Office em ${decodedLocation}`, img: "https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=1200" },
-    { title: `Treinamentos em ergonomia personalizados em ${decodedLocation}`, img: "https://images.unsplash.com/photo-1524178232363-1fb28f74b581?w=1200" },
-    { title: `Conformidade com NR-17 em ${decodedLocation}`, img: "https://images.unsplash.com/photo-1454165833767-027ffea9e77b?w=1200" },
-    { title: `Projeto Ergonômico personalizado para ${decodedLocation}`, img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200" },
-    { title: `Benefícios da ergonomia para empresas de ${decodedLocation}`, img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200" },
-    { title: `Prevenção de LER/DORT em ${decodedLocation}`, img: "https://images.unsplash.com/photo-1559832333-518620f393fb?w=1200" },
-    { title: `Mobiliário ergonômico adequado em ${decodedLocation}`, img: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1200" },
-    { title: `Iluminação e conforto térmico em postos de ${decodedLocation}`, img: "https://images.unsplash.com/photo-1505373633560-fa967385818f?w=1200" },
-    { title: `Pausas ativas e ginástica laboral em ${decodedLocation}`, img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200" },
-    { title: `Ergonomia cognitiva nas empresas de ${decodedLocation}`, img: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200" },
-    { title: `Avaliação postural técnica em ${decodedLocation}`, img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200" },
-    { title: `Adaptações para PcD em ambientes de ${decodedLocation}`, img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=1200" },
-    { title: `Casos de sucesso de ergonomia em ${decodedLocation}`, img: "https://images.unsplash.com/photo-1491333078588-55b6733c7de6?w=1200" },
-    { title: `Como solicitar análise ergonômica em ${decodedLocation}`, img: "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200" }
+    { title: `Introdução à Ergonomia em ${decodedLocation}`, img: ASSETS.topics[0] },
+    { title: `Serviços de Ergonomia oferecidos em ${decodedLocation}`, img: ASSETS.topics[1] },
+    { title: `Análise Ergonômica do Trabalho (AET) em ${decodedLocation}`, img: ASSETS.topics[2] },
+    { title: `Laudo Ergonômico (LET) para empresas de ${decodedLocation}`, img: ASSETS.topics[3] },
+    { title: `Ergonomia para Home Office em ${decodedLocation}`, img: ASSETS.topics[4] },
+    { title: `Treinamentos em ergonomia personalizados em ${decodedLocation}`, img: ASSETS.topics[5] },
+    { title: `Conformidade com NR-17 em ${decodedLocation}`, img: ASSETS.topics[6] },
+    { title: `Projeto Ergonômico personalizado para ${decodedLocation}`, img: ASSETS.topics[7] },
+    { title: `Benefícios da ergonomia para empresas de ${decodedLocation}`, img: ASSETS.topics[8] },
+    { title: `Prevenção de LER/DORT em ${decodedLocation}`, img: ASSETS.topics[9] },
+    { title: `Mobiliário ergonômico adequado em ${decodedLocation}`, img: ASSETS.topics[10] },
+    { title: `Iluminação e conforto térmico em postos de ${decodedLocation}`, img: ASSETS.topics[11] },
+    { title: `Pausas ativas e ginástica laboral em ${decodedLocation}`, img: ASSETS.topics[12] },
+    { title: `Ergonomia cognitiva nas empresas de ${decodedLocation}`, img: ASSETS.topics[13] },
+    { title: `Avaliação postural técnica em ${decodedLocation}`, img: ASSETS.topics[14] },
+    { title: `Adaptações para PcD em ambientes de ${decodedLocation}`, img: ASSETS.topics[15] },
+    { title: `Casos de sucesso de ergonomia em ${decodedLocation}`, img: ASSETS.topics[16] },
+    { title: `Como solicitar análise ergonômica em ${decodedLocation}`, img: ASSETS.topics[17] }
   ];
 
   const generateLongText = (topic: string) => {

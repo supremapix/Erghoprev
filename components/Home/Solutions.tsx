@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { COLORS } from '../../constants';
+import { COLORS, ASSETS } from '../../constants';
 import { ParallaxBackground } from '../Common/ParallaxShapes';
 
 const Solutions: React.FC = () => {
@@ -34,7 +34,7 @@ const Solutions: React.FC = () => {
                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-rose-500/20 rounded-full blur-2xl animate-pulse-slow delay-1000"></div>
                
                <img 
-                 src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200" 
+                 src={ASSETS.solutionsMain} 
                  alt="Ergonomia Profissional" 
                  className="rounded-[3rem] shadow-[0_50px_100px_rgba(0,0,0,0.1)] relative z-10 w-full aspect-video object-cover transform group-hover:scale-[1.02] transition-transform duration-700"
                />

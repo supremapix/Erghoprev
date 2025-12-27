@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { ASSETS } from '../../constants';
 
 const Associations: React.FC = () => {
   const [clickedIdx, setClickedIdx] = useState<number | null>(null);
@@ -8,31 +9,31 @@ const Associations: React.FC = () => {
     { 
       name: 'ESOCIAL', 
       fullName: 'Sistema de Escrituração Digital',
-      logo: 'https://www.gov.br/esocial/pt-br/centrais-de-conteudo/imagens/esocial_logo_pos_cor.png',
+      logo: ASSETS.partners.esocial,
       color: '#10b981'
     },
     { 
       name: 'ABERGO', 
       fullName: 'Associação Brasileira de Ergonomia',
-      logo: 'https://www.abergo.org.br/assets/images/logo_abergo_v2.png',
+      logo: ASSETS.partners.abergo,
       color: '#1e3a8a'
     },
     { 
       name: 'ABNT', 
       fullName: 'Associação Brasileira de Normas Técnicas',
-      logo: 'https://upload.wikimedia.org/wikipedia/pt/2/2a/Logotipo_da_ABNT.png',
+      logo: ASSETS.partners.abnt,
       color: '#1a365d'
     },
     { 
       name: 'CREFITO', 
       fullName: 'Conselho Regional de Fisioterapia',
-      logo: 'https://crefito8.org.br/wp-content/uploads/2021/03/logo-crefito-8.png',
+      logo: ASSETS.partners.crefito,
       color: '#059669'
     },
     { 
       name: 'IEA', 
       fullName: 'International Ergonomics Association',
-      logo: 'https://iea.cc/wp-content/uploads/2019/04/IEA_logo_small.png',
+      logo: ASSETS.partners.iea,
       color: '#f43f5e'
     }
   ];

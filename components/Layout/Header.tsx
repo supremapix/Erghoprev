@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { COLORS } from '../../constants';
+import { COLORS, ASSETS } from '../../constants';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,7 +61,7 @@ const Header: React.FC = () => {
             className={`relative group flex items-center h-full transition-all duration-500 transform ${isClicked ? 'scale-90' : 'hover:scale-110 active:scale-95'}`}
           >
             <img 
-              src="https://www.erghoprev.com.br/assets/images/erghoprev-analises-ergonomicas-do-trabalho-em-curitiba-296x121.png" 
+              src={ASSETS.logo} 
               alt="ErghoPrev Logo" 
               className={`h-[70px] lg:h-[100px] w-auto object-contain transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(30,58,138,0.3)] filter ${scrolled ? 'brightness-100' : 'brightness-110'}`}
             />

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { SERVICES, COLORS, CONTACT_INFO } from '../../constants';
+import { SERVICES, COLORS, CONTACT_INFO, ASSETS } from '../../constants';
 import { Service } from '../../types';
 import { X, ChevronRight, Info } from 'lucide-react';
 
@@ -76,7 +76,7 @@ const ServicesGrid: React.FC = () => {
                 <div className="bg-white/10 p-4 rounded-[4rem] backdrop-blur-md border border-white/30 shadow-2xl">
                   <div className="rounded-[3rem] overflow-hidden bg-white shadow-inner flex items-center justify-center">
                     <img 
-                      src="https://www.erghoprev.com.br/assets/images/analises-ergonimicas-do-trabalho-erghoprev-524x684.png" 
+                      src={ASSETS.servicesSide} 
                       alt="Análises Ergonômicas ErghoPrev" 
                       className="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-1000 p-2"
                     />

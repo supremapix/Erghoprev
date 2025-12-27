@@ -3,6 +3,7 @@ import React from 'react';
 import Hero from '../components/Home/Hero';
 import Solutions from '../components/Home/Solutions';
 import ServicesGrid from '../components/Home/ServicesGrid';
+import HomeOffice from '../components/Home/HomeOffice';
 import { ErgonomiaSection } from '../components/Home/ErgonomiaSection';
 import Timeline from '../components/Home/Timeline';
 import VideoSection from '../components/Home/VideoSection';
@@ -36,6 +37,7 @@ const HomePage: React.FC = () => {
       </section>
 
       <ServicesGrid />
+      <HomeOffice />
       <ErgonomiaSection />
       <Timeline />
       <VideoSection />
@@ -49,7 +51,7 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-black mb-4 text-blue-900">Onde Atendemos</h2>
-            <p className="text-xl text-gray-500">Expertise ergonômica em toda Curitiba e Região Metropolitana.</p>
+            <p className="text-xl text-gray-500 font-medium">Expertise ergonômica em toda Curitiba e Região Metropolitana.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">

@@ -1,12 +1,11 @@
 
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import FloatingButtons from './components/Common/FloatingButtons';
-
-const HomePage = lazy(() => import('./pages/HomePage'));
-const LocationPage = lazy(() => import('./pages/LocationPage'));
+import HomePage from './pages/HomePage';
+import LocationPage from './pages/LocationPage';
 
 const App: React.FC = () => {
   return (
@@ -14,12 +13,12 @@ const App: React.FC = () => {
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow pt-[100px]">
-          <Suspense fallback={<div className="h-screen flex items-center justify-center">Carregando...</div>}>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/local/:location" element={<LocationPage />} />
-            </Routes>
-          </Suspense>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/local/:location" element={<LocationPage />} />
+            {/* Fallback para rotas não encontradas redirecionando para home */}
+            <Route path="*" element={<HomePage />} />
+          </Routes>
         </main>
         <Footer />
         <FloatingButtons />
