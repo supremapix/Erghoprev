@@ -1,0 +1,7 @@
+{
+  "name": "ErghoPrev - Ergonomia e Saúde Ocupacional",
+  "description": "Uma plataforma moderna e ergonômica para serviços de análise ergonômica do trabalho, laudos, treinamentos e consultoria NR-17.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
