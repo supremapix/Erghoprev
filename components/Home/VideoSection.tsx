@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { COLORS, CONTACT_INFO } from '../../constants';
 
@@ -27,7 +26,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({ location = 'sua região' })
         
         <div className="relative pb-[56.25%] h-0 rounded-3xl overflow-hidden shadow-2xl mb-10 border-8 border-white">
           <iframe 
-            src="https://www.youtube.com/embed/9sVI77o_Hbw" 
+            src="https://www.youtube.com/embed/ligkLHCYQaM" 
             className="absolute top-0 left-0 w-full h-full"
             frameBorder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
