@@ -9,35 +9,34 @@ const Associations: React.FC = () => {
       name: 'ESOCIAL', 
       fullName: 'Sistema de Escrituração Digital',
       logo: 'https://www.gov.br/esocial/pt-br/centrais-de-conteudo/imagens/esocial_logo_pos_cor.png',
-      color: '#10b981' // Green
+      color: '#10b981'
     },
     { 
       name: 'ABERGO', 
       fullName: 'Associação Brasileira de Ergonomia',
       logo: 'https://www.abergo.org.br/assets/images/logo_abergo_v2.png',
-      color: '#1e3a8a' // Blue
+      color: '#1e3a8a'
     },
     { 
       name: 'ABNT', 
       fullName: 'Associação Brasileira de Normas Técnicas',
       logo: 'https://upload.wikimedia.org/wikipedia/pt/2/2a/Logotipo_da_ABNT.png',
-      color: '#1a365d' // Navy
+      color: '#1a365d'
     },
     { 
       name: 'CREFITO', 
       fullName: 'Conselho Regional de Fisioterapia',
       logo: 'https://crefito8.org.br/wp-content/uploads/2021/03/logo-crefito-8.png',
-      color: '#059669' // Emerald
+      color: '#059669'
     },
     { 
       name: 'IEA', 
       fullName: 'International Ergonomics Association',
       logo: 'https://iea.cc/wp-content/uploads/2019/04/IEA_logo_small.png',
-      color: '#f43f5e' // Rose
+      color: '#f43f5e'
     }
   ];
 
-  // Repeat for infinite effect
   const scrollingPartners = [...partners, ...partners, ...partners];
 
   const handleImpact = (idx: number) => {
@@ -47,7 +46,6 @@ const Associations: React.FC = () => {
 
   return (
     <section className="py-32 bg-white overflow-hidden relative border-t border-gray-100">
-      {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-[0.02] pointer-events-none">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -72,11 +70,9 @@ const Associations: React.FC = () => {
       </div>
 
       <div className="relative group/container">
-        {/* Soft edge fade */}
         <div className="absolute left-0 top-0 bottom-0 w-64 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none"></div>
         <div className="absolute right-0 top-0 bottom-0 w-64 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none"></div>
 
-        {/* Scrolling list */}
         <div className="flex animate-scroll-slower group-hover/container:pause-animation py-12">
           {scrollingPartners.map((p, idx) => (
             <div 
@@ -90,51 +86,46 @@ const Associations: React.FC = () => {
                   flex items-center justify-center p-10
                   transition-all duration-700 transform
                   hover:-translate-y-6 hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.12)]
-                  hover:scale-105 group grayscale hover:grayscale-0
+                  hover:scale-105 group
                   ${clickedIdx === idx ? 'animate-boom' : ''}
                 `}
                 style={{
-                  border: clickedIdx === idx ? `3px solid ${p.color}` : '1px solid #f1f5f9'
+                  border: clickedIdx === idx ? `4px solid ${p.color}` : '1px solid #f1f5f9'
                 }}
               >
-                {/* Glow effect on hover */}
                 <div 
                   className="absolute inset-0 rounded-[2.5rem] opacity-0 group-hover:opacity-10 transition-opacity duration-700 blur-3xl -z-10" 
                   style={{ backgroundColor: p.color }}
                 ></div>
 
-                {/* Stylized Text Fallback (always present but hidden by image if image loads) */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-6">
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-6 text-center">
                   <span 
-                    className="text-3xl lg:text-4xl font-black tracking-widest text-center uppercase opacity-100"
+                    className="text-4xl lg:text-5xl font-black tracking-tighter uppercase opacity-100"
                     style={{ color: p.color }}
                   >
                     {p.name}
                   </span>
                 </div>
                 
-                {/* Image Overlay (hides text if successful) */}
                 <img 
                   src={p.logo} 
                   alt={p.name} 
-                  className="relative z-10 max-h-full max-w-full object-contain transition-all duration-700 group-hover:scale-110 bg-white" 
+                  className="relative z-10 max-h-full max-w-full object-contain transition-all duration-700 group-hover:scale-110 bg-white group-hover:bg-transparent" 
                   onLoad={(e) => (e.currentTarget.style.opacity = '1')}
                   onError={(e) => (e.currentTarget.style.display = 'none')}
                 />
 
-                {/* Impact Ripple Circle */}
                 {clickedIdx === idx && (
                   <div className="absolute inset-0 border-4 border-rose-500 rounded-[2.5rem] animate-ping opacity-20"></div>
                 )}
               </div>
 
-              {/* Label below the card */}
               <div className="mt-8 flex flex-col items-center">
                 <span className="text-sm font-black text-gray-400 uppercase tracking-[0.2em] transition-all duration-500 group-hover:text-blue-900 group-hover:tracking-[0.3em]">
-                  {p.name}
+                  {p.fullName}
                 </span>
                 <div 
-                  className="w-12 h-1.5 rounded-full mt-3 transition-all duration-500 group-hover:w-24" 
+                  className="w-12 h-1.5 rounded-full mt-3 transition-all duration-500 group-hover:w-32" 
                   style={{ backgroundColor: p.color }}
                 ></div>
               </div>
@@ -149,9 +140,9 @@ const Associations: React.FC = () => {
           100% { transform: translateX(-33.33%); }
         }
         @keyframes boom-impact {
-          0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
-          30% { transform: scale(1.25); box-shadow: 0 0 50px 20px rgba(244, 63, 94, 0.4); }
-          100% { transform: scale(1.05); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+          0% { transform: scale(1); }
+          30% { transform: scale(1.25); filter: brightness(1.1); }
+          100% { transform: scale(1.05); }
         }
         .animate-scroll-slower {
           animation: scroll-slower 35s linear infinite;

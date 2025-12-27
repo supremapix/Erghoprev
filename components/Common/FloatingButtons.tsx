@@ -15,7 +15,7 @@ const FloatingButtons: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const btnClass = "fixed w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl transition-all duration-300 hover:scale-110 z-[500]";
+  const btnClass = "fixed w-16 h-16 rounded-full flex items-center justify-center text-white shadow-2xl transition-all duration-300 hover:scale-110 z-[500]";
 
   return (
     <>
@@ -23,21 +23,24 @@ const FloatingButtons: React.FC = () => {
         href={CONTACT_INFO.whatsappBase} 
         target="_blank" 
         rel="noopener noreferrer"
-        className={`${btnClass} bg-emerald-500 bottom-[200px] right-6`}
+        className={`${btnClass} bg-emerald-500 bottom-[240px] right-6 md:right-10`}
+        title="WhatsApp"
       >
-        <i className="fab fa-whatsapp text-2xl"></i>
+        <i className="fab fa-whatsapp text-3xl"></i>
       </a>
       
       <a 
         href={`tel:${CONTACT_INFO.phoneRaw}`} 
-        className={`${btnClass} bg-blue-900 bottom-[130px] right-6`}
+        className={`${btnClass} bg-blue-900 bottom-[160px] right-6 md:right-10`}
+        title="Ligar Agora"
       >
         <i className="fas fa-phone-alt text-2xl"></i>
       </a>
       
       <a 
         href={`mailto:${CONTACT_INFO.email}`} 
-        className={`${btnClass} bg-rose-500 bottom-[60px] right-6`}
+        className={`${btnClass} bg-rose-500 bottom-[80px] right-6 md:right-10`}
+        title="Enviar E-mail"
       >
         <i className="fas fa-envelope text-2xl"></i>
       </a>
@@ -45,7 +48,8 @@ const FloatingButtons: React.FC = () => {
       {showTop && (
         <button 
           onClick={scrollToTop}
-          className={`${btnClass} bg-gray-700 bottom-[60px] left-6 animate-fade-in`}
+          className={`${btnClass} bg-gray-800 bottom-[20px] left-6 md:left-10 animate-fade-in`}
+          title="Voltar ao Topo"
         >
           <i className="fas fa-arrow-up text-2xl"></i>
         </button>

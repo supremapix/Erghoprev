@@ -1,12 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { COLORS } from '../../constants';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -37,6 +38,11 @@ const Header: React.FC = () => {
     }
   };
 
+  const handleLogoClick = () => {
+    setIsClicked(true);
+    setTimeout(() => setIsClicked(false), 500);
+  };
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Serviços', path: '#solutions' },
@@ -45,14 +51,23 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${scrolled ? 'bg-white/95 shadow-2xl py-2' : 'bg-white/80 backdrop-blur-md py-4'}`}>
+    <header className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${scrolled ? 'bg-white/95 shadow-2xl py-1' : 'bg-white/80 backdrop-blur-md py-4'}`}>
       <div className="container mx-auto px-4 lg:px-12">
-        <div className="flex justify-between items-center h-[80px]">
-          {/* Logo */}
-          <Link to="/" className="flex items-center transform transition-transform hover:scale-105">
-            <h1 className="text-4xl lg:text-5xl font-black tracking-tighter" style={{ color: COLORS.primary }}>
-              Ergho<span style={{ color: COLORS.accent }}>Prev</span>
-            </h1>
+        <div className="flex justify-between items-center h-[100px]">
+          {/* Official Animated Logo */}
+          <Link 
+            to="/" 
+            onClick={handleLogoClick}
+            className={`relative group flex items-center h-full transition-all duration-500 transform ${isClicked ? 'scale-90' : 'hover:scale-110 active:scale-95'}`}
+          >
+            <img 
+              src="https://www.erghoprev.com.br/assets/images/erghoprev-analises-ergonomicas-do-trabalho-em-curitiba-296x121.png" 
+              alt="ErghoPrev Logo" 
+              className={`h-[70px] lg:h-[100px] w-auto object-contain transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(30,58,138,0.3)] filter ${scrolled ? 'brightness-100' : 'brightness-110'}`}
+            />
+            {isClicked && (
+              <div className="absolute inset-0 bg-blue-500/10 rounded-full animate-ping -z-10"></div>
+            )}
           </Link>
 
           {/* Desktop Nav */}
@@ -80,10 +95,10 @@ const Header: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button 
-            className="lg:hidden p-3 rounded-2xl bg-gray-100 text-blue-900" 
+            className="lg:hidden p-4 rounded-2xl bg-gray-100 text-blue-900 transition-transform active:scale-90" 
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? <X size={32} /> : <Menu size={32} />}
           </button>
         </div>
       </div>
