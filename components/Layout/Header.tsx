@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { COLORS, ASSETS } from '../../constants';
+import { COLORS } from '../../constants';
+import Logo from '../Common/Logo';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,19 +55,15 @@ const Header: React.FC = () => {
     <header className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${scrolled ? 'bg-white/95 shadow-2xl py-1' : 'bg-white/80 backdrop-blur-md py-4'}`}>
       <div className="container mx-auto px-4 lg:px-12">
         <div className="flex justify-between items-center h-[100px]">
-          {/* Official Animated Logo */}
+          {/* Logo Emulada */}
           <Link 
             to="/" 
             onClick={handleLogoClick}
-            className={`relative group flex items-center h-full transition-all duration-500 transform ${isClicked ? 'scale-90 -rotate-6' : 'hover:scale-110 active:scale-95'}`}
+            className={`relative group flex items-center h-full transition-all duration-500 transform ${isClicked ? 'scale-90' : 'hover:scale-110 active:scale-95'}`}
           >
-            <img 
-              src={ASSETS.logo} 
-              alt="ErghoPrev Logo" 
-              className={`h-[70px] lg:h-[100px] w-auto object-contain transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(30,58,138,0.3)] filter ${scrolled ? 'brightness-100' : 'brightness-110'} ${isClicked ? 'hue-rotate-180' : ''}`}
-            />
+            <Logo className="h-[60px] lg:h-[85px]" />
             {isClicked && (
-              <div className="absolute inset-0 bg-blue-500/20 rounded-full animate-ping -z-10"></div>
+              <div className="absolute inset-0 bg-blue-500/10 rounded-full animate-ping -z-10"></div>
             )}
           </Link>
 

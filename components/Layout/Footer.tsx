@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import { COLORS, CONTACT_INFO, ASSETS } from '../../constants';
+import { COLORS, CONTACT_INFO } from '../../constants';
 import { Link } from 'react-router-dom';
 import { Clock, Phone, Mail } from 'lucide-react';
+import Logo from '../Common/Logo';
 
 const Footer: React.FC = () => {
   const [isOpenNow, setIsOpenNow] = useState(false);
@@ -32,20 +33,13 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="space-y-8">
-            {/* Official Animated Logo for Footer */}
+            {/* Logo Emulada no Rodapé */}
             <Link 
               to="/" 
               onClick={handleLogoClick}
-              className={`relative inline-block transition-all duration-500 transform ${isClicked ? 'scale-90 rotate-12' : 'hover:scale-110 active:scale-95'}`}
+              className={`inline-block transition-all duration-500 transform ${isClicked ? 'scale-90' : 'hover:scale-110'}`}
             >
-              <img 
-                src={ASSETS.logo} 
-                alt="ErghoPrev Logo Footer" 
-                className={`h-[100px] lg:h-[120px] w-auto object-contain brightness-125 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-500 ${isClicked ? 'filter hue-rotate-90' : ''}`}
-              />
-              {isClicked && (
-                <div className="absolute inset-0 bg-rose-500/20 rounded-full animate-ping -z-10"></div>
-              )}
+              <Logo className="h-[90px] lg:h-[110px]" />
             </Link>
             <p className="text-gray-400 leading-relaxed text-lg font-medium">
               Excelência em gestão ergonômica e saúde ocupacional em Curitiba e Região Metropolitana.

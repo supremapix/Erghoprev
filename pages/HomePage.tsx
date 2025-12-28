@@ -3,8 +3,6 @@ import React from 'react';
 import Hero from '../components/Home/Hero';
 import Solutions from '../components/Home/Solutions';
 import ServicesGrid from '../components/Home/ServicesGrid';
-import HomeOffice from '../components/Home/HomeOffice';
-import { ErgonomiaSection } from '../components/Home/ErgonomiaSection';
 import Timeline from '../components/Home/Timeline';
 import VideoSection from '../components/Home/VideoSection';
 import GallerySlider from '../components/Home/GallerySlider';
@@ -37,8 +35,9 @@ const HomePage: React.FC = () => {
       </section>
 
       <ServicesGrid />
-      <HomeOffice />
-      <ErgonomiaSection />
+      
+      {/* Seções de Home Office e Ergonomia Removidas */}
+
       <Timeline />
       <VideoSection />
       <Testimonials />
