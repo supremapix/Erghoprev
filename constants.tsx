@@ -26,7 +26,7 @@ export const ASSETS = {
   heroBg: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80',
   
   // Solutions Section (Imagem 3 enviada)
-  solutionsMain: 'https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&q=80',
+  solutionsMain: '/assets/solutions.png',
   
   // Ergonomia Section (Imagem 4 enviada)
   ergonomiaMain: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80',

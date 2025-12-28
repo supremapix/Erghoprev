@@ -33,11 +33,15 @@ const Solutions: React.FC = () => {
                <div className="absolute -top-6 -right-6 w-32 h-32 bg-amber-400/20 rounded-full blur-2xl animate-pulse-slow"></div>
                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-rose-500/20 rounded-full blur-2xl animate-pulse-slow delay-1000"></div>
                
-               <img 
-                 src={ASSETS.logo} 
-                 alt="Ergonomia Profissional" 
-                 className="rounded-[3rem] shadow-[0_50px_100px_rgba(0,0,0,0.1)] relative z-10 w-full p-12 bg-white/50 backdrop-blur-sm transform group-hover:scale-[1.02] transition-transform duration-700"
-               />
+               <div className="relative overflow-hidden rounded-[3rem] shadow-[0_50px_100px_rgba(0,0,0,0.15)]">
+                 <img 
+                   src={ASSETS.solutionsMain} 
+                   alt="Ergonomia Profissional" 
+                   className="relative z-10 w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-[2000ms] ease-out"
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 via-transparent to-transparent z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                 <div className="absolute inset-0 bg-blue-500/10 mix-blend-overlay z-20"></div>
+               </div>
                <div className="absolute -bottom-10 -right-10 bg-white p-6 rounded-3xl shadow-2xl z-20 hidden lg:block transform group-hover:translate-x-2 transition-transform">
                  <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
