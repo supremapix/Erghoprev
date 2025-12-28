@@ -58,15 +58,15 @@ const Header: React.FC = () => {
           <Link 
             to="/" 
             onClick={handleLogoClick}
-            className={`relative group flex items-center h-full transition-all duration-500 transform ${isClicked ? 'scale-90' : 'hover:scale-110 active:scale-95'}`}
+            className={`relative group flex items-center h-full transition-all duration-500 transform ${isClicked ? 'scale-90 -rotate-6' : 'hover:scale-110 active:scale-95'}`}
           >
             <img 
               src={ASSETS.logo} 
               alt="ErghoPrev Logo" 
-              className={`h-[70px] lg:h-[100px] w-auto object-contain transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(30,58,138,0.3)] filter ${scrolled ? 'brightness-100' : 'brightness-110'}`}
+              className={`h-[70px] lg:h-[100px] w-auto object-contain transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(30,58,138,0.3)] filter ${scrolled ? 'brightness-100' : 'brightness-110'} ${isClicked ? 'hue-rotate-180' : ''}`}
             />
             {isClicked && (
-              <div className="absolute inset-0 bg-blue-500/10 rounded-full animate-ping -z-10"></div>
+              <div className="absolute inset-0 bg-blue-500/20 rounded-full animate-ping -z-10"></div>
             )}
           </Link>
 
