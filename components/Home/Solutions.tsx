@@ -31,8 +31,8 @@ const Solutions: React.FC = () => {
                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-rose-500/20 rounded-full blur-2xl animate-pulse-slow delay-1000"></div>
                
                <img 
-                 src="/erghoprev-analises.png" 
-                 alt="Erghoprev Análises Ergonômicas" 
+                 src="/yoga.png" 
+                 alt="Ergonomia e bem-estar, com uma pessoa praticando yoga." 
                  className="rounded-[3rem] shadow-[0_50px_100px_rgba(0,0,0,0.1)] relative z-10 w-full aspect-[3/4] object-cover transform group-hover:scale-[1.02] transition-transform duration-700"
                />
                <div className="absolute -bottom-10 -right-10 bg-white p-6 rounded-3xl shadow-2xl z-20 hidden lg:block transform group-hover:translate-x-2 transition-transform">

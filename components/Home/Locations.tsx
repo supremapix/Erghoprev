@@ -22,33 +22,44 @@ const Locations: React.FC = () => {
   return (
     <section id="locations" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl lg:text-6xl font-black mb-8 leading-tight text-center" style={{ color: COLORS.primary }}>
-          Atendemos em Toda a Região de Curitiba
-        </h2>
-        <p className="text-xl text-gray-600 mb-10 leading-relaxed font-medium text-center">
-          Nossa equipe está pronta para levar soluções ergonômicas para sua empresa, onde quer que ela esteja em Curitiba e região metropolitana.
-        </p>
+        <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="lg:w-1/2 relative group">
+                <img 
+                    src="/erghoprev-analises.png" 
+                    alt="Erghoprev Análises Ergonômicas" 
+                    className="rounded-[3rem] shadow-[0_50px_100px_rgba(0,0,0,0.1)] relative z-10 w-full aspect-[3/4] object-cover transform group-hover:scale-[1.02] transition-transform duration-700"
+                />
+            </div>
+            <div className="lg:w-1/2">
+                <h2 className="text-4xl lg:text-6xl font-black mb-8 leading-tight text-center lg:text-left" style={{ color: COLORS.primary }}>
+                Atendemos em Toda a Região de Curitiba
+                </h2>
+                <p className="text-xl text-gray-600 mb-10 leading-relaxed font-medium text-center lg:text-left">
+                Nossa equipe está pronta para levar soluções ergonômicas para sua empresa, onde quer que ela esteja em Curitiba e região metropolitana.
+                </p>
 
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold text-rose-500 mb-4 tracking-widest uppercase text-center">Bairros de Curitiba</h3>
-          <div className="flex flex-wrap justify-center gap-2">
-            {bairrosCuritiba.map(bairro => (
-              <span key={bairro} className="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-semibold shadow-md">
-                {bairro}
-              </span>
-            ))}
-          </div>
-        </div>
+                <div className="mb-12">
+                    <h3 className="text-2xl font-bold text-rose-500 mb-4 tracking-widest uppercase text-center lg:text-left">Bairros de Curitiba</h3>
+                    <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+                        {bairrosCuritiba.map(bairro => (
+                        <span key={bairro} className="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-semibold shadow-md">
+                            {bairro}
+                        </span>
+                        ))}
+                    </div>
+                </div>
 
-        <div>
-          <h3 className="text-2xl font-bold text-rose-500 mb-4 tracking-widest uppercase text-center">Cidades da Região Metropolitana</h3>
-          <div className="flex flex-wrap justify-center gap-2">
-            {cidadesMetropolitanas.map(cidade => (
-              <span key={cidade} className="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-semibold shadow-md">
-                {cidade}
-              </span>
-            ))}
-          </div>
+                <div>
+                    <h3 className="text-2xl font-bold text-rose-500 mb-4 tracking-widest uppercase text-center lg:text-left">Cidades da Região Metropolitana</h3>
+                    <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+                        {cidadesMetropolitanas.map(cidade => (
+                        <span key={cidade} className="bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-semibold shadow-md">
+                            {cidade}
+                        </span>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     </section>
