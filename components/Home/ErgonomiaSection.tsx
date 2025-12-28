@@ -1,14 +1,20 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Activity, Users, Clipboard, Target, ChevronRight } from 'lucide-react';
+import { Activity, Users, Clipboard, Target, ChevronRight, X, Info } from 'lucide-react';
+import { CONTACT_INFO, COLORS } from '../../constants';
 
-interface StatCardProps {
+interface StatItem {
   percentage: number;
   title: string;
   description: string;
+  detailedContent: string;
   color: string;
   delay: number;
+}
+
+interface StatCardProps extends StatItem {
   mousePos: { x: number; y: number };
+  onOpenModal: (item: StatItem) => void;
 }
 
 const CircularProgress: React.FC<{ percentage: number; color: string; delay: number; isVisible: boolean }> = ({ 
@@ -76,7 +82,7 @@ const CircularProgress: React.FC<{ percentage: number; color: string; delay: num
 };
 
 const StatCard: React.FC<StatCardProps> = ({ 
-  percentage, title, description, color, delay, mousePos 
+  percentage, title, description, detailedContent, color, delay, mousePos, onOpenModal 
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -89,7 +95,6 @@ const StatCard: React.FC<StatCardProps> = ({
     return () => observer.disconnect();
   }, []);
 
-  // 3D Tilt Effect based on Mouse Position inside the card
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -116,8 +121,9 @@ const StatCard: React.FC<StatCardProps> = ({
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div 
-        className="bg-white rounded-[3rem] shadow-[0_20px_60px_rgba(0,0,0,0.05)] hover:shadow-[0_50px_100px_rgba(0,0,0,0.1)] transition-all duration-300 p-12 h-full border border-gray-100 flex flex-col items-center group overflow-hidden relative"
+        className="bg-white rounded-[3rem] shadow-[0_20px_60px_rgba(0,0,0,0.05)] hover:shadow-[0_50px_100px_rgba(0,0,0,0.1)] transition-all duration-300 p-12 h-full border border-gray-100 flex flex-col items-center group overflow-hidden relative cursor-pointer"
         style={{ transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)` }}
+        onClick={() => onOpenModal({ percentage, title, description, detailedContent, color, delay })}
       >
         <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity -mr-16 -mt-16 rounded-full" style={{ backgroundColor: color }}></div>
         
@@ -144,6 +150,7 @@ const StatCard: React.FC<StatCardProps> = ({
 export const ErgonomiaSection: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [sectionVisible, setSectionVisible] = useState(false);
+  const [selectedStat, setSelectedStat] = useState<StatItem | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -167,11 +174,22 @@ export const ErgonomiaSection: React.FC = () => {
     };
   }, []);
 
-  const stats = [
+  const closeModal = () => {
+    setSelectedStat(null);
+    document.body.style.overflow = 'unset';
+  };
+
+  const openModal = (item: StatItem) => {
+    setSelectedStat(item);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const stats: StatItem[] = [
     {
       percentage: 86,
       title: "Palestras",
       description: "Leve informação clara e objetiva aos seus colaboradores em datas estratégicas como SIPAT ou Semana da Saúde.",
+      detailedContent: "Nossas palestras são dinâmicas e focadas na conscientização prática. Abordamos temas fundamentais como postura correta, ergonomia no cotidiano, prevenção de LER/DORT e saúde mental. Ideal para eventos corporativos que buscam engajar a equipe e reduzir queixas de desconforto muscular de forma leve e educativa.",
       color: "#f43f5e",
       delay: 0
     },
@@ -179,6 +197,7 @@ export const ErgonomiaSection: React.FC = () => {
       percentage: 100,
       title: "Treinamentos",
       description: "Capacitação técnica completa na admissão e reciclagens periódicas conforme exigência da NR-17.",
+      detailedContent: "A conformidade com a NR-17 exige que os trabalhadores sejam capacitados para as suas funções sob a ótica ergonômica. Oferecemos treinamentos técnicos de integração, reciclagem para setores industriais e administrativos, e formação específica para comitês internos de ergonomia, garantindo segurança jurídica e operacional.",
       color: "#10b981",
       delay: 200
     },
@@ -186,6 +205,7 @@ export const ErgonomiaSection: React.FC = () => {
       percentage: 95,
       title: "Projetos",
       description: "Ergonomia de Concepção aplicada antes da criação do produto ou ambiente, garantindo o design ideal.",
+      detailedContent: "A ergonomia de concepção é a forma mais inteligente de investir. Atuamos junto a arquitetos e engenheiros no planejamento de novos postos de trabalho, escolha técnica de mobiliário e layout industrial. Corrigir no papel é infinitamente mais barato do que remediar ambientes prontos, garantindo eficiência desde o primeiro dia.",
       color: "#fbbf24",
       delay: 400
     }
@@ -240,7 +260,7 @@ export const ErgonomiaSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
           {stats.map((stat, index) => (
-            <StatCard key={index} {...stat} mousePos={mousePos} />
+            <StatCard key={index} {...stat} mousePos={mousePos} onOpenModal={openModal} />
           ))}
         </div>
 
@@ -268,6 +288,53 @@ export const ErgonomiaSection: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* Modal Informativa */}
+      {selectedStat && (
+        <div className="fixed inset-0 z-[2000] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-blue-950/80 backdrop-blur-xl" onClick={closeModal}></div>
+          <div className="relative w-full max-w-2xl bg-white rounded-[3.5rem] shadow-2xl overflow-hidden animate-scale-in border-4 border-white">
+            <button 
+              onClick={closeModal} 
+              className="absolute top-8 right-8 p-4 rounded-full bg-gray-100 text-gray-500 hover:bg-rose-500 hover:text-white transition-all z-20"
+            >
+              <X size={28} />
+            </button>
+            <div className="p-12 lg:p-16">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg" style={{ backgroundColor: selectedStat.color }}>
+                  <Info className="text-white" size={32} />
+                </div>
+                <div>
+                  <h3 className="text-3xl lg:text-4xl font-black text-[#0f172a] tracking-tight">
+                    {selectedStat.title}
+                  </h3>
+                  <p className="text-sm font-bold uppercase tracking-widest opacity-60">Excelência ErghoPrev</p>
+                </div>
+              </div>
+              
+              <div className="space-y-6 mb-12">
+                <p className="text-gray-600 text-xl lg:text-2xl leading-relaxed font-medium">
+                  {selectedStat.detailedContent}
+                </p>
+                <div className="p-6 rounded-3xl bg-blue-50 border border-blue-100 flex items-center gap-6">
+                  <div className="text-4xl font-black" style={{ color: selectedStat.color }}>{selectedStat.percentage}%</div>
+                  <div className="text-blue-900 font-bold leading-tight">Métrica de eficiência e satisfação comprovada em projetos similares.</div>
+                </div>
+              </div>
+
+              <a 
+                href={CONTACT_INFO.whatsappBase + encodeURIComponent(` Gostaria de saber mais sobre: ${selectedStat.title} (Diferencial Ergonomia)`)}
+                target="_blank" rel="noopener noreferrer"
+                className="block w-full py-6 text-white font-black text-2xl rounded-2xl shadow-xl hover:scale-[1.02] active:scale-95 text-center transition-all flex items-center justify-center gap-4"
+                style={{ backgroundColor: COLORS.primary }}
+              >
+                <i className="fab fa-whatsapp"></i> Falar com Especialista
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
       
       <style>{`
         .perspective-1000 { perspective: 1000px; }

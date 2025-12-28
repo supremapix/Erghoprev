@@ -3,101 +3,46 @@ import React from 'react';
 
 interface LogoProps {
   className?: string;
+  variant?: 'light' | 'dark';
 }
 
-const Logo: React.FC<LogoProps> = ({ className = "h-20" }) => {
+const Logo: React.FC<LogoProps> = ({ className = "h-32", variant = 'light' }) => {
   return (
-    <div className={`flex items-center ${className} select-none`}>
-      <svg 
-        viewBox="0 0 460 190" 
-        className="h-full w-auto"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid meet"
-      >
-        {/* Arc of dots - matching the wave in the image */}
-        <g fill="#c4121a">
-          <circle cx="40" cy="65" r="22" />
-          <circle cx="85" cy="42" r="18" />
-          <circle cx="135" cy="28" r="16" />
-          <circle cx="185" cy="22" r="14" />
-          <circle cx="235" cy="30" r="12" />
-          <circle cx="280" cy="48" r="11" />
-          <circle cx="325" cy="58" r="12" />
-          <circle cx="370" cy="52" r="14" />
-          <circle cx="415" cy="30" r="17" />
-        </g>
+    <div className={`flex items-center logo-container ${className} select-none relative group`}>
+      <div className="relative overflow-visible">
+        {/* Usando a logo oficial fornecida que contém os pontos vermelhos e o estilo correto */}
+        <img 
+          src="https://www.erghoprev.com.br/logo-coreta.png" 
+          alt="ErghoPrev Logo" 
+          className={`logo-img w-auto h-full object-contain transition-all duration-700 ${variant === 'dark' ? 'brightness-0 invert' : ''}`}
+          style={{ 
+            maxHeight: '100%',
+            filter: variant === 'dark' ? 'brightness(0) invert(1)' : 'none'
+          }}
+          onError={(e) => {
+            const target = e.currentTarget;
+            target.style.display = 'none';
+            const parent = target.parentElement;
+            if (parent) {
+              parent.innerHTML = `
+                <div class="flex flex-col leading-tight p-2 scale-150">
+                  <span style="font-weight: 900; font-size: 2.2rem; color: ${variant === 'dark' ? '#fff' : '#1e3a8a'};">
+                    Ergho<span style="color: #60a5fa;">Prev</span>
+                  </span>
+                  <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #f43f5e;">
+                    Análises Ergonômicas
+                  </span>
+                </div>
+              `;
+            }
+          }}
+        />
         
-        {/* Main Brand Name */}
-        <g>
-          {/* Thick Blue Background/Outline for the whole word */}
-          <text 
-            x="30" 
-            y="135" 
-            fontFamily="Arial Black, Arial, sans-serif" 
-            fontWeight="900" 
-            fontSize="105" 
-            stroke="#2b5a97" 
-            strokeWidth="12" 
-            strokeLinejoin="round" 
-            fill="#2b5a97"
-            letterSpacing="-5"
-            textLength="390"
-            lengthAdjust="spacingAndGlyphs"
-          >
-            Erghoprev
-          </text>
-          
-          {/* White part "Ergho" */}
-          <text 
-            x="30" 
-            y="135" 
-            fontFamily="Arial Black, Arial, sans-serif" 
-            fontWeight="900" 
-            fontSize="105" 
-            fill="white"
-            letterSpacing="-5"
-          >
-            Ergho
-          </text>
-          
-          {/* Light Blue part "prev" - Positioned carefully to handle the descender of 'p' */}
-          <text 
-            x="262" 
-            y="135" 
-            fontFamily="Arial Black, Arial, sans-serif" 
-            fontWeight="900" 
-            fontSize="105" 
-            fill="#a6d1f5"
-            letterSpacing="-5"
-          >
-            prev
-          </text>
-        </g>
-        
-        {/* Subtext "análises ergonômicas" - Red and Bold */}
-        <text 
-          x="440" 
-          y="158" 
-          fontFamily="Arial Black, Arial, sans-serif" 
-          fontWeight="900" 
-          fontSize="24" 
-          fill="#c4121a"
-          textAnchor="end"
-        >
-          análises
-        </text>
-        <text 
-          x="440" 
-          y="182" 
-          fontFamily="Arial Black, Arial, sans-serif" 
-          fontWeight="900" 
-          fontSize="24" 
-          fill="#c4121a"
-          textAnchor="end"
-        >
-          ergonômicas
-        </text>
-      </svg>
+        {/* Efeito de Brilho Dinâmico */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-[200%] skew-x-[-25deg] group-hover:animate-[glint_1.8s_ease-in-out_infinite]"></div>
+        </div>
+      </div>
     </div>
   );
 };
