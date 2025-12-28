@@ -1,24 +1,23 @@
 
-# ErghoPrev - Sitemap Técnico Oficial
+# ErghoPrev - Sitemap de SEO Massivo
 # Base URL: https://www.erghoprev.com.br/
-# Prioridade: 1.0
 
-# Core Pages
+# Home
 https://www.erghoprev.com.br/
 
-# Bairros de Curitiba (Foco SEO Local)
+# Bairros de Curitiba
 https://www.erghoprev.com.br/#/local/Vila%20Parolin
 https://www.erghoprev.com.br/#/local/Vila%20Torres
 https://www.erghoprev.com.br/#/local/Jardim%20Schaffer
-https://www.erghoprev.com.br/#/local/Vila%20Sabara
-https://www.erghoprev.com.br/#/local/Boqueirao%20de%20Baixo
-https://www.erghoprev.com.br/#/local/Boqueirao%20de%20Cima
-https://www.erghoprev.com.br/#/local/Tangua
+https://www.erghoprev.com.br/#/local/Vila%20Sabará
+https://www.erghoprev.com.br/#/local/Boqueirão%20de%20Baixo
+https://www.erghoprev.com.br/#/local/Boqueirão%20de%20Cima
+https://www.erghoprev.com.br/#/local/Tanguá
 https://www.erghoprev.com.br/#/local/Vila%20Zumbi
 https://www.erghoprev.com.br/#/local/Abranches%20de%20Baixo
 https://www.erghoprev.com.br/#/local/Abranches%20de%20Cima
 https://www.erghoprev.com.br/#/local/Vila%20Nossa%20Senhora%20da%20Luz
-https://www.erghoprev.com.br/#/local/Vila%20Tecnologica
+https://www.erghoprev.com.br/#/local/Vila%20Tecnológica
 https://www.erghoprev.com.br/#/local/Vila%20Oficinas
 https://www.erghoprev.com.br/#/local/Vila%20Fanny
 https://www.erghoprev.com.br/#/local/Vila%20Hauer
@@ -27,14 +26,14 @@ https://www.erghoprev.com.br/#/local/Alto%20da%20Rua%20XV
 https://www.erghoprev.com.br/#/local/CIC%20Norte
 https://www.erghoprev.com.br/#/local/CIC%20Central
 https://www.erghoprev.com.br/#/local/CIC%20Sul
-https://www.erghoprev.com.br/#/local/Vila%20Guaira
-https://www.erghoprev.com.br/#/local/Centro%20Historico
+https://www.erghoprev.com.br/#/local/Vila%20Guaíra
+https://www.erghoprev.com.br/#/local/Centro%20Histórico
 https://www.erghoprev.com.br/#/local/Ecoville
 https://www.erghoprev.com.br/#/local/Carmo%20Abranches
-https://www.erghoprev.com.br/#/local/Agua%20Verde
-https://www.erghoprev.com.br/#/local/Ahu
-https://www.erghoprev.com.br/#/local/Alto%20da%20Gloria
-https://www.erghoprev.com.br/#/local/Alto%20Boqueirao
+https://www.erghoprev.com.br/#/local/Água%20Verde
+https://www.erghoprev.com.br/#/local/Ahú
+https://www.erghoprev.com.br/#/local/Alto%20Boqueirão
+https://www.erghoprev.com.br/#/local/Alto%20da%20Glória
 https://www.erghoprev.com.br/#/local/Alto%20da%20XV
 https://www.erghoprev.com.br/#/local/Atuba
 https://www.erghoprev.com.br/#/local/Augusta
@@ -45,7 +44,7 @@ https://www.erghoprev.com.br/#/local/Batel
 https://www.erghoprev.com.br/#/local/Bigorrilho
 https://www.erghoprev.com.br/#/local/Boa%20Vista
 https://www.erghoprev.com.br/#/local/Bom%20Retiro
-https://www.erghoprev.com.br/#/local/Boqueirao
+https://www.erghoprev.com.br/#/local/Boqueirão
 https://www.erghoprev.com.br/#/local/Butiatuvinha
 https://www.erghoprev.com.br/#/local/Cabral
 https://www.erghoprev.com.br/#/local/Cachoeira
@@ -53,67 +52,67 @@ https://www.erghoprev.com.br/#/local/Cajuru
 https://www.erghoprev.com.br/#/local/Campina%20do%20Siqueira
 https://www.erghoprev.com.br/#/local/Campo%20Comprido
 https://www.erghoprev.com.br/#/local/Campo%20de%20Santana
-https://www.erghoprev.com.br/#/local/Capao%20da%20Imbuia
-https://www.erghoprev.com.br/#/local/Capao%20Raso
+https://www.erghoprev.com.br/#/local/Capão%20da%20Imbuia
+https://www.erghoprev.com.br/#/local/Capão%20Raso
 https://www.erghoprev.com.br/#/local/Cascatinha
 https://www.erghoprev.com.br/#/local/Caximba
 https://www.erghoprev.com.br/#/local/Centro
-https://www.erghoprev.com.br/#/local/Centro%20Civico
+https://www.erghoprev.com.br/#/local/Centro%20Cívico
 https://www.erghoprev.com.br/#/local/Cidade%20Industrial
 https://www.erghoprev.com.br/#/local/Cristo%20Rei
 https://www.erghoprev.com.br/#/local/Fanny
 https://www.erghoprev.com.br/#/local/Fazendinha
 https://www.erghoprev.com.br/#/local/Ganchinho
 https://www.erghoprev.com.br/#/local/Guabirotuba
-https://www.erghoprev.com.br/#/local/Guaira
+https://www.erghoprev.com.br/#/local/Guaíra
 https://www.erghoprev.com.br/#/local/Hauer
 https://www.erghoprev.com.br/#/local/Hugo%20Lange
-https://www.erghoprev.com.br/#/local/Jardim%20Botanico
-https://www.erghoprev.com.br/#/local/Jardim%20das%20Americas
+https://www.erghoprev.com.br/#/local/Jardim%20Botânico
+https://www.erghoprev.com.br/#/local/Jardim%20das%20Américas
 https://www.erghoprev.com.br/#/local/Jardim%20Social
-https://www.erghoprev.com.br/#/local/Juveve
+https://www.erghoprev.com.br/#/local/Juvevê
 https://www.erghoprev.com.br/#/local/Lamenha%20Pequena
-https://www.erghoprev.com.br/#/local/Lindoia
-https://www.erghoprev.com.br/#/local/Merces
-https://www.erghoprev.com.br/#/local/Mossungue
+https://www.erghoprev.com.br/#/local/Lindóia
+https://www.erghoprev.com.br/#/local/Mercês
+https://www.erghoprev.com.br/#/local/Mossunguê
 https://www.erghoprev.com.br/#/local/Novo%20Mundo
 https://www.erghoprev.com.br/#/local/Orleans
 https://www.erghoprev.com.br/#/local/Parolin
 https://www.erghoprev.com.br/#/local/Pilarzinho
 https://www.erghoprev.com.br/#/local/Pinheirinho
-https://www.erghoprev.com.br/#/local/Portao
+https://www.erghoprev.com.br/#/local/Portão
 https://www.erghoprev.com.br/#/local/Prado%20Velho
-https://www.erghoprev.com.br/#/local/Reboucas
+https://www.erghoprev.com.br/#/local/Rebouças
 https://www.erghoprev.com.br/#/local/Riviera
-https://www.erghoprev.com.br/#/local/Santa%20Candida
+https://www.erghoprev.com.br/#/local/Santa%20Cândida
 https://www.erghoprev.com.br/#/local/Santa%20Felicidade
-https://www.erghoprev.com.br/#/local/Santa%20Quiteria
-https://www.erghoprev.com.br/#/local/Santo%20Inacio
-https://www.erghoprev.com.br/#/local/Sao%20Braz
-https://www.erghoprev.com.br/#/local/Sao%20Francisco
-https://www.erghoprev.com.br/#/local/Sao%20Joao
-https://www.erghoprev.com.br/#/local/Sao%20Lourenco
-https://www.erghoprev.com.br/#/local/Sao%20Miguel
+https://www.erghoprev.com.br/#/local/Santa%20Quitéria
+https://www.erghoprev.com.br/#/local/Santo%20Inácio
+https://www.erghoprev.com.br/#/local/São%20Braz
+https://www.erghoprev.com.br/#/local/São%20Francisco
+https://www.erghoprev.com.br/#/local/São%20João
+https://www.erghoprev.com.br/#/local/São%20Lourenço
+https://www.erghoprev.com.br/#/local/São%20Miguel
 https://www.erghoprev.com.br/#/local/Vila%20Pantanal
-https://www.erghoprev.com.br/#/local/Seminario
-https://www.erghoprev.com.br/#/local/Sitio%20Cercado
-https://www.erghoprev.com.br/#/local/Taboao
-https://www.erghoprev.com.br/#/local/Taruma
+https://www.erghoprev.com.br/#/local/Seminário
+https://www.erghoprev.com.br/#/local/Sítio%20Cercado
+https://www.erghoprev.com.br/#/local/Taboão
+https://www.erghoprev.com.br/#/local/Tarumã
 https://www.erghoprev.com.br/#/local/Tatuquara
 https://www.erghoprev.com.br/#/local/Tingui
 https://www.erghoprev.com.br/#/local/Uberaba
-https://www.erghoprev.com.br/#/local/Umbarara
+https://www.erghoprev.com.br/#/local/Umbará
 https://www.erghoprev.com.br/#/local/Vila%20Izabel
 https://www.erghoprev.com.br/#/local/Vista%20Alegre
 https://www.erghoprev.com.br/#/local/Xaxim
 
-# Cidades da Região Metropolitana (RMC)
-https://www.erghoprev.com.br/#/local/Adrianopolis
+# Cidades RMC
+https://www.erghoprev.com.br/#/local/Adrianópolis
 https://www.erghoprev.com.br/#/local/Agudos%20do%20Sul
-https://www.erghoprev.com.br/#/local/Almirante%20Tamandare
-https://www.erghoprev.com.br/#/local/Araucaria
+https://www.erghoprev.com.br/#/local/Almirante%20Tamandaré
+https://www.erghoprev.com.br/#/local/Araucária
 https://www.erghoprev.com.br/#/local/Balsa%20Nova
-https://www.erghoprev.com.br/#/local/Bocaiuva%20do%20Sul
+https://www.erghoprev.com.br/#/local/Bocaiúva%20do%20Sul
 https://www.erghoprev.com.br/#/local/Campina%20Grande%20do%20Sul
 https://www.erghoprev.com.br/#/local/Campo%20do%20Tenente
 https://www.erghoprev.com.br/#/local/Campo%20Largo
@@ -123,16 +122,17 @@ https://www.erghoprev.com.br/#/local/Colombo
 https://www.erghoprev.com.br/#/local/Contenda
 https://www.erghoprev.com.br/#/local/Doutor%20Ulysses
 https://www.erghoprev.com.br/#/local/Fazenda%20Rio%20Grande
-https://www.erghoprev.com.br/#/local/Itaperucu
+https://www.erghoprev.com.br/#/local/Itaperuçu
 https://www.erghoprev.com.br/#/local/Lapa
 https://www.erghoprev.com.br/#/local/Mandirituba
-https://www.erghoprev.com.br/#/local/Pien
+https://www.erghoprev.com.br/#/local/Piên
 https://www.erghoprev.com.br/#/local/Pinhais
 https://www.erghoprev.com.br/#/local/Piraquara
 https://www.erghoprev.com.br/#/local/Quatro%20Barras
 https://www.erghoprev.com.br/#/local/Quitandinha
 https://www.erghoprev.com.br/#/local/Rio%20Branco%20do%20Sul
 https://www.erghoprev.com.br/#/local/Rio%20Negro
-https://www.erghoprev.com.br/#/local/Sao%20Jose%20dos%20Pinhais
+https://www.erghoprev.com.br/#/local/São%20José%20dos%20Pinhais
 https://www.erghoprev.com.br/#/local/Tijucas%20do%20Sul
-https://www.erghoprev.com.br/#/local/Tunas%20do%20Parana
+https://www.erghoprev.com.br/#/local/Tunas%20do%20Paraná
+https://www.erghoprev.com.br/#/local/Curitiba

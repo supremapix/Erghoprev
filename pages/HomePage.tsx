@@ -10,6 +10,7 @@ import Testimonials from '../components/Home/Testimonials';
 import FAQ from '../components/Home/FAQ';
 import ContactForm from '../components/Home/ContactForm';
 import Associations from '../components/Home/Associations';
+import { ErgonomiaSection } from '../components/Home/ErgonomiaSection';
 import { COLORS, BAIRROS, CIDADES_RMC } from '../constants';
 import { Link } from 'react-router-dom';
 
@@ -36,7 +37,8 @@ const HomePage: React.FC = () => {
 
       <ServicesGrid />
       
-      {/* Seções de Home Office e Ergonomia Removidas */}
+      {/* Nova Seção Interativa */}
+      <ErgonomiaSection />
 
       <Timeline />
       <VideoSection />

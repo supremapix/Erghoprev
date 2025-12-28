@@ -1,142 +1,196 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import VideoSection from '../components/Home/VideoSection';
 import Testimonials from '../components/Home/Testimonials';
 import FAQ from '../components/Home/FAQ';
 import ContactForm from '../components/Home/ContactForm';
-import { COLORS, CONTACT_INFO, ASSETS } from '../constants';
+import { CONTACT_INFO, ASSETS, BAIRROS } from '../constants';
 
 const LocationPage: React.FC = () => {
   const { location } = useParams<{ location: string }>();
-  const decodedLocation = location ? decodeURIComponent(location) : 'sua região';
+  const decodedLocation = location ? decodeURIComponent(location) : 'Curitiba';
+  const isBairro = useMemo(() => BAIRROS.includes(decodedLocation), [decodedLocation]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = `Análise Ergonômica em ${decodedLocation} | ErghoPrev NR-17 Especialista`;
+    const domain = "https://www.erghoprev.com.br";
+    const path = `/#/local/${encodeURIComponent(decodedLocation)}`;
+    const fullUrl = `${domain}${path}`;
+
+    const title = `Análise Ergonômica em ${decodedLocation} | Especialista NR-17 | ErghoPrev`;
+    const description = `Consultoria especializada em Ergonomia (NR-17), AET e LET em ${decodedLocation}. Atendimento técnico para empresas em ${decodedLocation} focado em produtividade e eSocial. Garantia de conformidade técnica em Curitiba e Região Metropolitana.`;
+    
+    document.title = title;
+    
+    // SEO Meta Tags
+    const updateMeta = (name: string, content: string) => {
+      let meta = document.querySelector(`meta[name="${name}"]`);
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('name', name);
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+    };
+
+    updateMeta('description', description);
+    updateMeta('keywords', `ergonomia ${decodedLocation}, NR-17 ${decodedLocation}, AET ${decodedLocation}, laudo ergonômico ${decodedLocation}, saúde ocupacional ${decodedLocation}, consultoria ergonomia Curitiba`);
+    
+    // Canonical Tag
+    let link: HTMLLinkElement | null = document.querySelector('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', fullUrl);
+
   }, [decodedLocation]);
 
   const topics = [
-    { title: `Introdução à Ergonomia em ${decodedLocation}`, img: ASSETS.topics[0] },
-    { title: `Serviços de Ergonomia oferecidos em ${decodedLocation}`, img: ASSETS.topics[1] },
-    { title: `Análise Ergonômica do Trabalho (AET) em ${decodedLocation}`, img: ASSETS.topics[2] },
-    { title: `Laudo Ergonômico (LET) para empresas de ${decodedLocation}`, img: ASSETS.topics[3] },
-    { title: `Ergonomia para Home Office em ${decodedLocation}`, img: ASSETS.topics[4] },
-    { title: `Treinamentos em ergonomia personalizados em ${decodedLocation}`, img: ASSETS.topics[5] },
-    { title: `Conformidade com NR-17 em ${decodedLocation}`, img: ASSETS.topics[6] },
-    { title: `Projeto Ergonômico personalizado para ${decodedLocation}`, img: ASSETS.topics[7] },
-    { title: `Benefícios da ergonomia para empresas de ${decodedLocation}`, img: ASSETS.topics[8] },
-    { title: `Prevenção de LER/DORT em ${decodedLocation}`, img: ASSETS.topics[9] },
-    { title: `Mobiliário ergonômico adequado em ${decodedLocation}`, img: ASSETS.topics[10] },
-    { title: `Iluminação e conforto térmico em postos de ${decodedLocation}`, img: ASSETS.topics[11] },
-    { title: `Pausas ativas e ginástica laboral em ${decodedLocation}`, img: ASSETS.topics[12] },
-    { title: `Ergonomia cognitiva nas empresas de ${decodedLocation}`, img: ASSETS.topics[13] },
-    { title: `Avaliação postural técnica em ${decodedLocation}`, img: ASSETS.topics[14] },
-    { title: `Adaptações para PcD em ambientes de ${decodedLocation}`, img: ASSETS.topics[15] },
-    { title: `Casos de sucesso de ergonomia em ${decodedLocation}`, img: ASSETS.topics[16] },
-    { title: `Como solicitar análise ergonômica em ${decodedLocation}`, img: ASSETS.topics[17] }
+    { title: `Ergonomia NR-17 em ${decodedLocation}`, img: ASSETS.topics[0] },
+    { title: `Análise Ergonômica do Trabalho em ${decodedLocation}`, img: ASSETS.topics[1] },
+    { title: `Laudo Ergonômico (LET) para empresas de ${decodedLocation}`, img: ASSETS.topics[2] },
+    { title: `Treinamento de Postura e Ergonomia em ${decodedLocation}`, img: ASSETS.topics[3] },
+    { title: `Ginástica Laboral e Pausas Ativas em ${decodedLocation}`, img: ASSETS.topics[4] },
+    { title: `Gestão de Riscos Ocupacionais (GRO) em ${decodedLocation}`, img: ASSETS.topics[5] },
+    { title: `Ergonomia para o eSocial em ${decodedLocation}`, img: ASSETS.topics[6] },
+    { title: `Consultoria em Mobiliário Ergonômico em ${decodedLocation}`, img: ASSETS.topics[7] },
+    { title: `Adaptações de Postos de Trabalho em ${decodedLocation}`, img: ASSETS.topics[8] },
+    { title: `Saúde e Bem-estar no trabalho em ${decodedLocation}`, img: ASSETS.topics[9] },
+    { title: `Prevenção de LER/DORT nas empresas de ${decodedLocation}`, img: ASSETS.topics[10] },
+    { title: `Avaliação de Iluminação e Conforto em ${decodedLocation}`, img: ASSETS.topics[11] },
+    { title: `Ergonomia Cognitiva e Carga Mental em ${decodedLocation}`, img: ASSETS.topics[12] },
+    { title: `Projeto Ergonômico de Concepção em ${decodedLocation}`, img: ASSETS.topics[13] },
+    { title: `Auditoria NR-17 para indústrias de ${decodedLocation}`, img: ASSETS.topics[14] },
+    { title: `Adequação de Home Office em ${decodedLocation}`, img: ASSETS.topics[15] },
+    { title: `Fiscalização do Trabalho e Ergonomia em ${decodedLocation}`, img: ASSETS.topics[16] },
+    { title: `Melhores Práticas Ergonômicas em ${decodedLocation}`, img: ASSETS.topics[17] }
   ];
 
   const generateLongText = (topic: string) => {
-    const p1 = `A aplicação estratégica de soluções ergonômicas em ${decodedLocation} representa um marco na evolução das empresas locais que buscam não apenas o cumprimento das exigências do Ministério do Trabalho, mas a verdadeira valorização do seu capital humano. Ao discutir sobre ${topic}, a ErghoPrev traz para ${decodedLocation} uma visão holística que integra a biomecânica, a psicologia e a engenharia de processos. Nossa metodologia de atuação em ${decodedLocation} é pautada pela observação participante, onde nossos ergonomistas analisam cada micro-movimento do colaborador em seu posto habitual de trabalho. `;
+    const geoContext = isBairro ? `o bairro ${decodedLocation} em Curitiba` : `a cidade de ${decodedLocation} na Região Metropolitana de Curitiba (RMC)`;
     
-    const p2 = `A relevância de manter um ambiente ergonomicamente equilibrado em ${decodedLocation} reflete diretamente nos indicadores de performance da organização. Empresas em ${decodedLocation} que negligenciam a NR-17 enfrentam custos ocultos altíssimos, como o aumento do absenteísmo e o risco iminente de processos trabalhistas por doenças osteomusculares. Em contrapartida, ao investir em ${topic} conosco, as empresas de ${decodedLocation} percebem uma melhora imediata no moral da equipe, uma redução nas queixas de dores ocupacionais e um fluxo de trabalho muito mais fluido e eficiente. `;
+    // Criando um corpo de texto massivo (+300 palavras por tópico)
+    const introduction = `A busca por excelência em ${topic} em ${geoContext} tem se tornado uma prioridade estratégica para gestores conscientes que visam não apenas o cumprimento legal, mas a performance humana máxima. A ErghoPrev compreende que em cada ponto de ${decodedLocation}, as dinâmicas industriais e corporativas possuem nuances específicas que exigem uma consultoria de ergonomia verdadeiramente personalizada. Ao contratar o serviço de ${topic}, sua organização em ${decodedLocation} recebe um acompanhamento técnico de ponta, pautado pelas mais recentes atualizações da NR-17 e metodologias científicas de vanguarda. `;
     
-    const p3 = `Além dos aspectos físicos, a ergonomia em ${decodedLocation} aborda a carga mental e organizacional. O projeto ergonômico que desenvolvemos para a região de ${decodedLocation} leva em conta a iluminação, o ruído e a temperatura, criando um ecossistema de trabalho saudável. Se você possui uma empresa em ${decodedLocation}, seja ela uma pequena sala comercial ou um grande complexo industrial, a necessidade de um laudo técnico (LET) ou uma análise (AET) é urgente para garantir a segurança jurídica perante o eSocial e o PGR. `;
+    const analysisSection = `A nossa abordagem para ${topic} em ${decodedLocation} começa com uma imersão profunda na realidade operacional. Não entregamos apenas documentos frios; entregamos diagnósticos que transformam o dia a dia. Em ${decodedLocation}, observamos que muitas queixas de saúde podem ser resolvidas com ajustes precisos de layout e mobiliário, o que é o coração do nosso trabalho com ${topic}. O diferencial da ErghoPrev em ${decodedLocation} é a capacidade de traduzir termos técnicos complexos em planos de ação práticos, fáceis de implementar e com alto impacto no bem-estar coletivo. Entender a biomecânica aplicada ao setor produtivo de ${decodedLocation} nos permite neutralizar riscos antes mesmo que eles se tornem passivos trabalhistas ou gerem afastamentos por LER/DORT. `;
     
-    const p4 = `Finalizando nossa abordagem sobre ${topic} em ${decodedLocation}, reforçamos que a prevenção é o caminho mais curto para a lucratividade sustentável. O mercado em ${decodedLocation} exige agilidade, e nada compromete mais a agilidade do que uma força de trabalho doente ou desmotivada. Convidamos todos os empresários e gestores de RH de ${decodedLocation} a conhecerem nosso portfólio completo de consultoria NR-17, treinamentos e projetos customizados que estão transformando a realidade ocupacional da nossa região. `;
+    const complianceSection = `No cenário atual do eSocial e da nova redação da NR-01, o serviço de ${topic} em ${decodedLocation} é um pilar fundamental da Gestão de Riscos Ocupacionais (GRO). As empresas sediadas em ${decodedLocation} que negligenciam a ergonomia básica enfrentam multas pesadas e custos invisíveis com a rotatividade de pessoal. Por outro lado, aquelas que investem em ${topic} conosco percebem um aumento imediato na motivação da equipe. A ErghoPrev atua em ${decodedLocation} como um parceiro estratégico, auxiliando na escolha de cadeiras ergonômicas, suportes de monitor e na organização temporal do trabalho, garantindo que o seu negócio em ${geoContext} esteja sempre à frente da concorrência e em total conformidade com os auditores fiscais do trabalho. `;
     
-    return p1 + p2 + p3 + p4 + p2; // Concatenating to reach 300-400 words
+    const futureVision = `Olhando para o futuro de ${decodedLocation}, a ergonomia será cada vez mais integrada à sustentabilidade corporativa. O serviço de ${topic} que oferecemos hoje em ${decodedLocation} prepara o terreno para um ambiente de trabalho resiliente e adaptável. Seja você uma pequena empresa em crescimento ou uma grande indústria consolidada em ${decodedLocation}, a necessidade de ${topic} é universal. Convidamos você a descobrir como a ErghoPrev pode elevar o patamar da sua empresa através de uma visão humanizada e técnica da ergonomia. Agende uma visita técnica em ${decodedLocation} e comprove por que somos a referência número um em soluções ergonômicas para toda Curitiba e região. Nosso compromisso é com a vida e com a produtividade do seu time em ${decodedLocation}. `;
+    
+    const conclusion = `Finalizando, é importante ressaltar que ${topic} não é um gasto, mas o investimento mais inteligente que uma empresa de ${decodedLocation} pode fazer. Ao reduzir a fadiga e o desconforto, estamos diretamente impulsionando os lucros e a longevidade da sua operação em ${geoContext}. Entre em contato agora e garanta a melhor consultoria em ${topic} disponível no mercado de ${decodedLocation}. `;
+
+    return introduction + analysisSection + complianceSection + futureVision + conclusion;
   };
 
   return (
-    <div className="flex flex-col overflow-x-hidden">
+    <div className="flex flex-col">
+      {/* Schema Markup - JSON-LD Dinâmico para SEO Local */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Service",
-          "name": `Análise Ergonômica em ${decodedLocation}`,
-          "provider": { "@type": "Organization", "name": "ErghoPrev" },
-          "areaServed": { "@type": "City", "name": decodedLocation },
-          "description": `Consultoria especializada em NR-17, AET, LET e treinamentos de ergonomia em ${decodedLocation}.`
+          "@type": "LocalBusiness",
+          "name": `ErghoPrev Ergonomia em ${decodedLocation}`,
+          "image": ASSETS.topics[0],
+          "@id": `https://www.erghoprev.com.br/#/local/${encodeURIComponent(decodedLocation)}`,
+          "url": `https://www.erghoprev.com.br/#/local/${encodeURIComponent(decodedLocation)}`,
+          "telephone": CONTACT_INFO.phone,
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": decodedLocation,
+            "addressRegion": "PR",
+            "addressCountry": "BR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -25.4284,
+            "longitude": -49.2733
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "18:00"
+          },
+          "sameAs": [
+            "https://www.instagram.com/erghoprev",
+            "https://www.facebook.com/erghoprev"
+          ]
         })}
       </script>
 
-      <section className="bg-gradient-to-br from-[#1a365d] to-[#1e3a8a] py-32 lg:py-48 text-white text-center relative overflow-hidden">
+      {/* Hero Section Localizada */}
+      <section className="bg-[#0f172a] py-32 lg:py-48 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <pattern id="grid-bg" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5"/>
-            </pattern>
-            <rect width="100" height="100" fill="url(#grid-bg)" />
-          </svg>
+          <img src={ASSETS.topics[1]} className="w-full h-full object-cover blur-sm" alt="Fundo Decorativo" />
         </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="mb-8 inline-block px-6 py-2 rounded-full bg-rose-500 text-xs font-black uppercase tracking-[0.3em] shadow-xl animate-bounce">
-            Atendimento Local em {decodedLocation}
-          </div>
-          <h1 className="text-5xl lg:text-8xl font-black mb-8 leading-none tracking-tighter">
-            Ergonomia em <br />
-            <span className="text-blue-400">{decodedLocation}</span>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <nav className="flex justify-center gap-2 text-blue-400 text-sm font-black uppercase tracking-widest mb-10">
+            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <span>/</span>
+            <span className="text-gray-400">{decodedLocation}</span>
+          </nav>
+          <span className="inline-block px-8 py-2 rounded-full bg-rose-500 text-white text-xs font-black uppercase tracking-[0.3em] mb-8 animate-pulse shadow-lg">
+            Consultoria Local em {decodedLocation}
+          </span>
+          <h1 className="text-4xl lg:text-8xl font-black mb-10 leading-tight tracking-tighter">
+            Especialista em Ergonomia <br />
+            e NR-17 em <span className="text-blue-400 underline decoration-rose-500 decoration-8">{decodedLocation}</span>
           </h1>
-          <p className="text-xl lg:text-3xl text-blue-100 max-w-4xl mx-auto mb-16 font-medium leading-relaxed">
-            Soluções completas de saúde ocupacional e conformidade com a NR-17 para sua empresa em {decodedLocation}.
+          <p className="text-xl lg:text-3xl text-blue-100 max-w-5xl mx-auto mb-16 font-medium leading-relaxed">
+            Sua empresa em {decodedLocation} merece as melhores soluções em Análise Ergonômica (AET), Laudos Técnicos e Treinamentos de Postura. Atendimento presencial e conformidade total.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a href="#contact" className="px-12 py-6 bg-emerald-500 text-white font-black text-2xl rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95">
-              Solicitar Orçamento
-            </a>
-            <a href={CONTACT_INFO.whatsappBase} className="px-12 py-6 bg-white text-blue-900 font-black text-2xl rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95">
-              Falar no WhatsApp
+          <div className="flex flex-wrap justify-center gap-6">
+            <a href="#contact" className="px-14 py-6 bg-emerald-500 text-white font-black text-2xl rounded-3xl shadow-2xl hover:bg-emerald-600 transition-all hover:-translate-y-2 flex items-center gap-4">
+              <i className="fab fa-whatsapp"></i> Orçamento em {decodedLocation}
             </a>
           </div>
         </div>
+        {/* Animated Shapes */}
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-500/20 rounded-full blur-[100px] animate-pulse"></div>
+        <div className="absolute top-10 -right-20 w-96 h-96 bg-rose-500/10 rounded-full blur-[120px] animate-pulse delay-700"></div>
       </section>
 
-      <div className="bg-white py-6 border-b border-gray-100 sticky top-[100px] z-[50]">
-        <div className="container mx-auto px-4">
-          <nav className="flex items-center gap-3 text-sm font-bold overflow-x-auto no-scrollbar whitespace-nowrap">
-            <Link to="/" className="text-gray-400 hover:text-blue-900 transition-colors">HOME</Link>
-            <span className="text-gray-300">/</span>
-            <span className="text-blue-900 uppercase">ERCONOMIA EM {decodedLocation}</span>
-          </nav>
-        </div>
-      </div>
-
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="space-y-40 max-w-7xl mx-auto">
+      {/* Conteúdo Massivo de Texto para SEO (18 Tópicos) */}
+      <section className="py-32 bg-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="space-y-40">
             {topics.map((item, idx) => (
-              <article key={idx} className={`flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16 lg:gap-24`}>
-                <div className="lg:w-1/2 space-y-10">
-                  <header>
-                    <div className="w-20 h-2 bg-rose-500 rounded-full mb-8"></div>
-                    <h2 className="text-4xl lg:text-5xl font-black text-blue-950 leading-tight tracking-tighter">
-                      {item.title}
-                    </h2>
-                  </header>
-                  <div className="text-gray-600 text-xl leading-relaxed font-medium space-y-6">
+              <article key={idx} className={`flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-20`}>
+                <div className="lg:w-1/2 space-y-8">
+                  <div className="inline-flex items-center gap-4">
+                    <span className="w-16 h-1 bg-rose-500 rounded-full"></span>
+                    <span className="text-rose-500 font-black text-sm uppercase tracking-widest">Tópico Especializado 0{idx + 1}</span>
+                  </div>
+                  <h2 className="text-3xl lg:text-5xl font-black text-[#1e3a8a] leading-none tracking-tighter">
+                    {item.title}
+                  </h2>
+                  <div className="text-gray-600 text-xl leading-relaxed space-y-6 font-medium">
+                    {/* Renderizamos o texto gerado dinamicamente com +300 palavras */}
                     <p>{generateLongText(item.title)}</p>
                   </div>
-                  <footer className="pt-6">
+                  <div className="pt-6">
                     <a 
-                      href={CONTACT_INFO.whatsappBase + encodeURIComponent(` - Vi o conteúdo sobre ${item.title} em ${decodedLocation}`)} 
-                      target="_blank" 
-                      className="inline-flex items-center gap-4 text-emerald-500 font-black text-xl uppercase tracking-widest hover:translate-x-4 transition-transform group"
+                      href={CONTACT_INFO.whatsappBase + encodeURIComponent(` sobre ${item.title} em ${decodedLocation}`)}
+                      className="inline-flex items-center gap-3 text-blue-900 font-black text-xl hover:text-rose-500 transition-colors group"
                     >
-                      Solicitar em {decodedLocation} 
-                      <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition-all">
-                        <i className="fas fa-arrow-right"></i>
-                      </div>
+                      Dúvidas sobre {item.title}? <i className="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
                     </a>
-                  </footer>
+                  </div>
                 </div>
                 <div className="lg:w-1/2 w-full">
                   <div className="relative group">
-                    <div className="absolute -inset-4 bg-gradient-to-tr from-rose-500 to-blue-500 rounded-[4rem] opacity-20 blur-2xl group-hover:opacity-40 transition-opacity"></div>
-                    <div className="relative rounded-[3.5rem] overflow-hidden shadow-2xl border-8 border-white bg-gray-100">
-                      <img src={item.img} alt={item.title} className="w-full aspect-[4/3] object-cover transform transition-transform duration-[2s] group-hover:scale-110" />
+                    <div className="absolute -inset-4 bg-gradient-to-br from-blue-100 to-rose-100 rounded-[4rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                    <div className="relative bg-white rounded-[3.5rem] p-4 shadow-2xl overflow-hidden border border-gray-100">
+                      <img 
+                        src={`${item.img}`} 
+                        alt={`Serviço de ${item.title} prestado pela ErghoPrev em ${decodedLocation}`} 
+                        className="w-full aspect-[4/3] object-cover rounded-[3rem] transform group-hover:scale-110 transition-transform duration-1000"
+                        loading="lazy"
+                      />
                     </div>
                   </div>
                 </div>
@@ -149,12 +203,19 @@ const LocationPage: React.FC = () => {
       <VideoSection location={decodedLocation} />
       <Testimonials />
       <FAQ />
-      <ContactForm />
+      
+      {/* Banner de Fechamento de SEO */}
+      <section className="py-24 bg-blue-950 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl lg:text-5xl font-black mb-8">Sua Empresa em {decodedLocation} <br /> merece o melhor cuidado ergonômico.</h2>
+          <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-12">Desde a Vila Parolin até São José dos Pinhais, a ErghoPrev é a sua parceira estratégica em saúde e segurança do trabalho.</p>
+          <a href="#contact" className="inline-block px-12 py-5 bg-white text-blue-950 font-black text-xl rounded-full hover:bg-rose-500 hover:text-white transition-all shadow-xl">
+            Falar com um Especialista Agora
+          </a>
+        </div>
+      </section>
 
-      <style>{`
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      `}</style>
+      <ContactForm />
     </div>
   );
 };
