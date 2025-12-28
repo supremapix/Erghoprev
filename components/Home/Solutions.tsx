@@ -22,15 +22,14 @@ const Solutions: React.FC = () => {
   };
 
   return (
-    <section id="solutions" className="py-24 bg-white relative overflow-hidden">
+    <section id="solutions" className="py-24 bg-white relative overflow-hidden scroll-mt-24">
       <ParallaxBackground>
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-            {/* Texto e CTA */}
             <div className="lg:w-1/2 relative z-10 space-y-8">
               <div className="space-y-2">
                 <h4 className="text-rose-600 font-black text-lg lg:text-xl tracking-[0.3em] uppercase animate-fade-in-up">
-                  Soluções Ergonômicas
+                  O Segredo da Alta Performance
                 </h4>
                 <div className="h-1.5 w-20 bg-blue-900 rounded-full"></div>
               </div>
@@ -40,17 +39,18 @@ const Solutions: React.FC = () => {
               </h2>
 
               <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed font-medium">
-                A ErghoPrev oferece uma consultoria completa pautada na <strong>NR-17</strong>, transformando postos de trabalho em ambientes de alta performance. Reduza passivos trabalhistas, elimine riscos de LER/DORT e impulsione a produtividade através de uma gestão ergonômica científica e eficiente.
+                Transforme passivos em ativos. A ErghoPrev implementa a <strong>NR-17</strong> com rigor científico, eliminando riscos de multas e elevando a produtividade do seu time através do conforto e ergonomia aplicada.
               </p>
 
               <div className="flex flex-wrap gap-6 pt-4">
                 <a 
                   href="#contact"
                   onClick={handleScrollToContact}
-                  className="px-12 py-6 rounded-full text-white font-black text-xl transition-all hover:brightness-110 shadow-[0_20px_50px_rgba(225,29,72,0.3)] hover:-translate-y-2 active:scale-95 text-center flex-grow sm:flex-grow-0 group flex items-center justify-center gap-3" 
+                  className="group relative overflow-hidden px-12 py-6 rounded-full text-white font-black text-xl transition-all hover:brightness-110 shadow-[0_20px_50px_rgba(225,29,72,0.3)] hover:-translate-y-2 active:scale-95 text-center flex-grow sm:flex-grow-0 flex items-center justify-center gap-3" 
                   style={{ backgroundColor: COLORS.accent }}
                 >
-                  Falar com Especialista
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[200%] skew-x-[-25deg] group-hover:animate-[glint_1.5s_ease-in-out_infinite]"></div>
+                  Eliminar Riscos Agora
                   <i className="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
                 </a>
                 <a 
@@ -59,7 +59,7 @@ const Solutions: React.FC = () => {
                   rel="noopener noreferrer"
                   className="px-12 py-6 rounded-full text-blue-900 font-black text-xl border-4 border-blue-900 hover:bg-blue-900 hover:text-white transition-all active:scale-95 text-center flex-grow sm:flex-grow-0"
                 >
-                  Ver Laudos NR-17
+                  Falar com Especialista
                 </a>
               </div>
 
@@ -70,12 +70,11 @@ const Solutions: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-3xl font-black text-rose-600">-40%</p>
-                  <p className="text-sm font-bold text-gray-500 uppercase tracking-widest">Absenteísmo</p>
+                  <p className="text-sm font-bold text-gray-500 uppercase tracking-widest">Custos Invisíveis</p>
                 </div>
               </div>
             </div>
 
-            {/* Imagem Emulada */}
             <div className="lg:w-1/2 relative">
               <div className="relative group perspective-1000">
                 <div className="absolute inset-0 bg-blue-400/20 blur-[100px] rounded-full animate-pulse-slow"></div>
@@ -94,13 +93,11 @@ const Solutions: React.FC = () => {
                       </div>
                       <div>
                         <h5 className="font-black text-blue-950 text-xl">Análise Biomecânica</h5>
-                        <p className="text-gray-500 font-medium">Mapeamento preciso de tensões musculares e posturais.</p>
+                        <p className="text-gray-500 font-medium">Mapeamento preciso para eSocial e PGR.</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="absolute -top-10 -right-10 w-40 h-40 bg-rose-100 rounded-full blur-3xl opacity-60 animate-bounce-slow"></div>
-                <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-amber-100 rounded-full blur-3xl opacity-60 animate-bounce-slow delay-1000"></div>
               </div>
             </div>
           </div>

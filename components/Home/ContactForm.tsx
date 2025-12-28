@@ -13,7 +13,6 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Using the user requested base text structure
     const baseText = "Ol%C3%A1%20encontrei%20seu%20site%3A%20*%20Erghoprev*%20no%20Google%20gostaria%20de%20saber%20*sobre%3A*";
     const detailedMessage = `\n\n*Nome:* ${formData.name}\n*Serviço:* ${formData.service}\n*Mensagem:* ${formData.message}`;
     
@@ -22,16 +21,16 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24" style={{ backgroundColor: '#dbeafe' }}>
+    <section id="contact" className="py-24 scroll-mt-24" style={{ backgroundColor: '#dbeafe' }}>
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           <div className="lg:w-1/2">
             <h2 className="text-4xl lg:text-6xl font-black mb-8" style={{ color: COLORS.primary }}>
-              Como Começar? <br />
-              <span style={{ color: COLORS.accent }}>Fale Conosco!</span>
+              O Próximo Passo Para <br />
+              Sua <span style={{ color: COLORS.accent }}>Conformidade Legal!</span>
             </h2>
             <p className="text-xl text-gray-700 mb-10 leading-relaxed">
-              Deseja realizar uma análise ergonômica em sua empresa? Preencha o formulário ao lado e nossa equipe entrará em contato em breve para agendar uma visita técnica.
+              Não deixe sua empresa vulnerável a fiscalizações. Preencha agora para receber um diagnóstico preliminar e garantir que sua gestão ergonômica esteja em dia com a NR-17.
             </p>
             
             <div className="space-y-6">
@@ -40,7 +39,7 @@ const ContactForm: React.FC = () => {
                   <i className="fas fa-phone-alt"></i>
                 </div>
                 <div>
-                  <p className="text-gray-500 font-bold uppercase tracking-wider text-sm">Telefone</p>
+                  <p className="text-gray-500 font-bold uppercase tracking-wider text-sm">Central de Atendimento</p>
                   <p className="text-xl font-black text-blue-900">{CONTACT_INFO.phone}</p>
                 </div>
               </a>
@@ -49,7 +48,7 @@ const ContactForm: React.FC = () => {
                   <i className="fas fa-envelope"></i>
                 </div>
                 <div>
-                  <p className="text-gray-500 font-bold uppercase tracking-wider text-sm">E-mail</p>
+                  <p className="text-gray-500 font-bold uppercase tracking-wider text-sm">Dúvidas Técnicas</p>
                   <p className="text-xl font-black text-blue-900">{CONTACT_INFO.email}</p>
                 </div>
               </a>
@@ -58,18 +57,19 @@ const ContactForm: React.FC = () => {
                   <i className="fab fa-whatsapp"></i>
                 </div>
                 <div>
-                  <p className="text-gray-500 font-bold uppercase tracking-wider text-sm">WhatsApp</p>
-                  <p className="text-xl font-black text-blue-900">Conversar Agora</p>
+                  <p className="text-gray-500 font-bold uppercase tracking-wider text-sm">Suporte Online</p>
+                  <p className="text-xl font-black text-blue-900">Regularizar Empresa Agora</p>
                 </div>
               </a>
             </div>
           </div>
 
           <div className="lg:w-1/2 w-full">
-            <form onSubmit={handleSubmit} className="bg-white p-8 lg:p-12 rounded-[2.5rem] shadow-2xl space-y-4 border border-blue-50">
+            <form onSubmit={handleSubmit} className="bg-white p-8 lg:p-12 rounded-[2.5rem] shadow-2xl space-y-4 border border-blue-50 relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-full h-2 bg-rose-500"></div>
               <input 
                 type="text" 
-                placeholder="Nome completo" 
+                placeholder="Nome completo ou da Empresa" 
                 required
                 className="w-full px-6 py-4 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:border-blue-400 focus:ring-4 focus:ring-blue-100 transition-all outline-none"
                 value={formData.name}
@@ -86,7 +86,7 @@ const ContactForm: React.FC = () => {
                 />
                 <input 
                   type="tel" 
-                  placeholder="WhatsApp / Telefone" 
+                  placeholder="WhatsApp de Contato" 
                   required
                   className="w-full px-6 py-4 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:border-blue-400 transition-all outline-none"
                   value={formData.phone}
@@ -99,15 +99,15 @@ const ContactForm: React.FC = () => {
                 value={formData.service}
                 onChange={e => setFormData({...formData, service: e.target.value})}
               >
-                <option value="">Selecione o serviço</option>
-                <option value="Análise Ergonômica">Análise Ergonômica (AET)</option>
+                <option value="">O que você precisa hoje?</option>
+                <option value="Análise Ergonômica">Análise Ergonômica Completa (AET)</option>
                 <option value="Laudo Ergonômico">Laudo Ergonômico (LET)</option>
-                <option value="Treinamentos">Treinamentos / NR-17</option>
-                <option value="Projeto Ergonômico">Projeto Ergonômico</option>
-                <option value="Home Office">Home Office</option>
+                <option value="Treinamentos">Treinamentos NR-17 / SIPAT</option>
+                <option value="Projeto Ergonômico">Consultoria de Projeto</option>
+                <option value="Adequação eSocial">Adequação eSocial / PGR</option>
               </select>
               <textarea 
-                placeholder="Como podemos te ajudar?" 
+                placeholder="Descreva brevemente o cenário da sua empresa..." 
                 rows={4} 
                 required
                 className="w-full px-6 py-4 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:border-blue-400 transition-all outline-none"
@@ -116,12 +116,14 @@ const ContactForm: React.FC = () => {
               ></textarea>
               <button 
                 type="submit" 
-                className="w-full py-5 rounded-xl text-white font-black text-xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3"
+                className="relative overflow-hidden w-full py-6 rounded-xl text-white font-black text-xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3"
                 style={{ backgroundColor: COLORS.primary }}
               >
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[200%] skew-x-[-25deg] group-hover:animate-[glint_1.5s_ease-in-out_infinite]"></div>
                 <i className="fab fa-whatsapp"></i>
-                Enviar via WhatsApp
+                Solicitar Diagnóstico Especializado
               </button>
+              <p className="text-center text-xs text-gray-400 font-bold uppercase tracking-tighter">Resposta em até 24h úteis</p>
             </form>
           </div>
         </div>

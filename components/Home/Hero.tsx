@@ -32,31 +32,31 @@ const Hero: React.FC = () => {
   }, [charIndex, isDeleting, phraseIndex]);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-sky-100 to-blue-200 py-20 lg:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-br from-sky-100 to-blue-200 py-16 lg:py-32">
       <ParallaxBackground>
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <div className="mb-8 inline-block px-4 py-1 rounded-full bg-white/40 backdrop-blur-sm border border-white/60 text-blue-900 text-sm font-bold uppercase tracking-widest animate-bounce">
-            Expertise em NR-17
+          <div className="mb-6 lg:mb-8 inline-block px-6 py-2 rounded-full bg-white/50 backdrop-blur-md border border-white/60 text-blue-900 text-xs lg:text-sm font-black uppercase tracking-[0.2em] animate-bounce shadow-sm">
+            Autoridade Máxima em NR-17
           </div>
           
-          <h2 className="text-4xl lg:text-8xl font-black mb-8 min-h-[1.5em] leading-tight" style={{ color: COLORS.primary }}>
+          <h1 className="text-3xl sm:text-4xl lg:text-8xl font-black mb-6 lg:mb-10 min-h-[2.5em] sm:min-h-[1.5em] leading-[1.1] tracking-tighter px-2" style={{ color: COLORS.primary }}>
             {displayText}<span className="text-rose-500 animate-pulse">|</span>
-          </h2>
+          </h1>
           
-          <p className="text-xl lg:text-2xl text-gray-700 max-w-3xl mx-auto mb-12 font-medium leading-relaxed">
-            Proteção e saúde ocupacional com foco na ergonomia. Diminua o fluxo de passivos de sua empresa da forma mais segura e eficiente.
+          <p className="text-lg lg:text-2xl text-gray-700 max-w-3xl mx-auto mb-10 lg:mb-16 font-medium leading-relaxed px-4">
+            Proteja sua empresa contra multas e processos. Reduza o absenteísmo e potencialize a produtividade com gestão ergonômica de elite.
           </p>
 
-          <div className="flex flex-col items-center gap-8">
-            <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-col items-center gap-6 lg:gap-10">
+            <div className="flex flex-wrap justify-center gap-4 lg:gap-6 w-full max-w-xl">
               <a 
                 href={`tel:${CONTACT_INFO.phoneRaw}`}
-                className="flex items-center gap-3 bg-white/60 backdrop-blur-md px-8 py-4 rounded-2xl border border-white/50 shadow-xl hover:scale-105 transition-transform"
+                className="flex items-center gap-3 lg:gap-4 bg-white/70 backdrop-blur-md px-6 py-4 lg:px-8 lg:py-5 rounded-2xl border border-white/50 shadow-lg hover:scale-105 transition-all w-full sm:w-auto justify-center"
               >
-                <span className="text-3xl">📞</span>
-                <div>
-                  <p className="text-xs font-bold text-gray-500 uppercase">Ligue Agora</p>
-                  <p className="text-2xl font-black" style={{ color: COLORS.primary }}>{CONTACT_INFO.phone}</p>
+                <div className="text-2xl lg:text-3xl bg-blue-100 w-12 h-12 lg:w-14 lg:h-14 rounded-xl flex items-center justify-center">📞</div>
+                <div className="text-left">
+                  <p className="text-[10px] lg:text-xs font-bold text-gray-400 uppercase tracking-widest">Falar Agora</p>
+                  <p className="text-xl lg:text-2xl font-black whitespace-nowrap" style={{ color: COLORS.primary }}>{CONTACT_INFO.phone}</p>
                 </div>
               </a>
             </div>
@@ -65,10 +65,11 @@ const Hero: React.FC = () => {
               href={CONTACT_INFO.whatsappBase}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center px-12 py-6 font-black text-white text-xl transition-all duration-300 bg-emerald-500 rounded-full hover:bg-emerald-600 shadow-[0_20px_50px_rgba(16,185,129,0.3)] hover:shadow-[0_20px_50px_rgba(16,185,129,0.5)] hover:-translate-y-2"
+              className="group relative overflow-hidden inline-flex items-center justify-center w-full sm:w-auto px-10 lg:px-14 py-5 lg:py-7 font-black text-white text-lg lg:text-2xl transition-all duration-300 bg-emerald-500 rounded-2xl lg:rounded-full hover:bg-emerald-600 shadow-[0_20px_50px_rgba(16,185,129,0.3)] hover:shadow-[0_20px_50px_rgba(16,185,129,0.5)] hover:-translate-y-2 active:scale-95"
             >
-              Solicite uma Proposta!
-              <i className="fas fa-chevron-right ml-3 group-hover:translate-x-1 transition-transform"></i>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[200%] skew-x-[-25deg] group-hover:animate-[glint_1.5s_ease-in-out_infinite]"></div>
+              Garantir Diagnóstico Gratuito
+              <i className="fas fa-chevron-right ml-4 group-hover:translate-x-2 transition-transform"></i>
             </a>
           </div>
         </div>
