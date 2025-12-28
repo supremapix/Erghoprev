@@ -4,19 +4,11 @@ import { COLORS } from '../../constants';
 
 const Locations: React.FC = () => {
   const bairrosCuritiba = [
-    'Água Verde', 'Alto da Glória', 'Alto da XV', 'Bairro Alto', 'Batel', 'Bigorrilho', 'Boa Vista', 'Boqueirão',
-    'Cabral', 'Cajuru', 'Campina do Siqueira', 'Campo Comprido', 'Capão Raso', 'Centro', 'Centro Cívico',
-    'Cidade Industrial De Curitiba (CIC)', 'Cristo Rei', 'Fanny', 'Fazendinha', 'Guaíra', 'Hauer', 'Hugo Lange',
-    'Jardim Botânico', 'Jardim das Américas', 'Juvevê', 'Lindóia', 'Mercês', 'Novo Mundo', 'Parolin',
-    'Pinheirinho', 'Portão', 'Prado Velho', 'Rebouças', 'Santa Cândida', 'Santa Felicidade', 'Santa Quitéria',
-    'Santo Inácio', 'São Braz', 'São Francisco', 'São João', 'São Lourenço', 'Seminário', 'Tarumã',
-    'Tatuquara', 'Tingui', 'Uberaba', 'Umbará', 'Vila Izabel', 'Vista Alegre', 'Xaxim'
+    'Abranches', 'Água Verde', 'Ahú', 'Alto Boqueirão', 'Alto da Glória', 'Alto da Rua XV', 'Atuba', 'Augusta', 'Bacacheri', 'Bairro Alto', 'Batel', 'Bigorrilho', 'Boa Vista', 'Bom Retiro', 'Boqueirão', 'Butiatuvinha', 'Cabral', 'Cachoeira', 'Cajuru', 'Campina do Siqueira', 'Campo Comprido', 'Campo de Santana', 'Capão da Imbuia', 'Capão Raso', 'Cascatinha', 'Caximba', 'Centro', 'Centro Cívico', 'Cidade Industrial', 'Cristo Rei', 'Fanny', 'Fazendinha', 'Ganchinho', 'Guabirotuba', 'Guaíra', 'Hauer', 'Hugo Lange', 'Jardim Botânico', 'Jardim das Américas', 'Jardim Social', 'Juvevê', 'Lamenha Pequena', 'Lindóia', 'Mercês', 'Mossunguê', 'Novo Mundo', 'Orleans', 'Parolin', 'Pilarzinho', 'Pinheirinho', 'Portão', 'Prado Velho', 'Rebouças', 'Riviera', 'Santa Cândida', 'Santa Felicidade', 'Santa Quitéria', 'Santo Inácio', 'São Braz', 'São Francisco', 'São João', 'São Lourenço', 'São Miguel', 'Seminário', 'Sítio Cercado', 'Taboão', 'Tarumã', 'Tatuquara', 'Tingui', 'Uberaba', 'Umbará', 'Vila Izabel', 'Vista Alegre', 'Xaxim'
   ];
 
   const cidadesMetropolitanas = [
-    'Almirante Tamandaré', 'Araucária', 'Balsa Nova', 'Bocaiúva do Sul', 'Campina Grande do Sul', 'Campo Largo',
-    'Campo Magro', 'Colombo', 'Contenda', 'Fazenda Rio Grande', 'Itaperuçu', 'Mandirituba', 'Pinhais',
-    'Piraquara', 'Quatro Barras', 'Rio Branco do Sul', 'São José dos Pinhais', 'Tijucas do Sul'
+    'Adrianópolis', 'Agudos do Sul', 'Almirante Tamandaré', 'Araucária', 'Balsa Nova', 'Bocaiúva do Sul', 'Campina Grande do Sul', 'Campo do Tenente', 'Campo Largo', 'Campo Magro', 'Cerro Azul', 'Colombo', 'Contenda', 'Doutor Ulysses', 'Fazenda Rio Grande', 'Itaperuçu', 'Lapa', 'Mandirituba', 'Piên', 'Pinhais', 'Piraquara', 'Quatro Barras', 'Quitandinha', 'Rio Branco do Sul', 'Rio Negro', 'São José dos Pinhais', 'Tijucas do Sul', 'Tunas do Paraná'
   ];
 
   return (
