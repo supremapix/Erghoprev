@@ -12,7 +12,7 @@ const Logo: React.FC<LogoProps> = ({ className = "h-32", variant = 'light' }) =>
       <div className="relative overflow-visible h-full flex items-center">
         {/* Usando a logo oficial fornecida */}
         <img 
-          src="https://www.erghoprev.com.br/logo-coreta.png" 
+          src="/assets/logomarca-header-rodape-emulada.png"
           alt="ErghoPrev Logo" 
           className={`logo-img w-auto h-full max-w-full object-contain transition-all duration-700 ${variant === 'dark' ? 'brightness-0 invert' : ''}`}
           style={{ 
