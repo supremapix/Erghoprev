@@ -9,8 +9,9 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const { pathname } = useLocation();
+  const location = useLocation();
   const navigate = useNavigate();
+  const { pathname, hash, state } = location;
 
   // Bloqueio de scroll quando o menu mobile está aberto
   useEffect(() => {
@@ -20,6 +21,33 @@ const Header: React.FC = () => {
       document.body.style.overflow = 'unset';
     }
   }, [isOpen]);
+
+  // Efeito para Scroll no Carregamento Inicial (Hash ou State)
+  useEffect(() => {
+    const targetId = hash ? hash.replace('#', '') : (state as any)?.scrollTo;
+
+    if (targetId) {
+      const scrollToTarget = () => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          const offset = 90;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+          
+          // Limpa o state para não scrollar novamente sem querer
+          if ((state as any)?.scrollTo) {
+             window.history.replaceState({}, document.title);
+          }
+        }
+      };
+
+      // Tenta scrollar imediatamente e após um breve delay para garantir renderização
+      scrollToTarget();
+      const timer = setTimeout(scrollToTarget, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [hash, state]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +61,7 @@ const Header: React.FC = () => {
           const element = document.getElementById(section);
           if (element) {
             const rect = element.getBoundingClientRect();
+            // Offset de detecção
             if (rect.top <= 150) {
               currentSection = section;
             }
@@ -49,34 +78,42 @@ const Header: React.FC = () => {
   }, [pathname]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    setIsOpen(false);
+
+    // Função auxiliar para scroll com offset
+    const scrollToSection = (id: string) => {
+      const element = document.getElementById(id);
+      if (element) {
+        const offset = 90;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      }
+    };
+
     if (path.startsWith('#')) {
       e.preventDefault();
-      setIsOpen(false);
       const sectionId = path.substring(1);
       
       if (pathname !== '/') {
         navigate('/');
         setTimeout(() => {
-          const element = document.getElementById(sectionId);
-          if (element) {
-            const offset = 90;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - offset;
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-          }
+          scrollToSection(sectionId);
         }, 150);
       } else {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const offset = 90;
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - offset;
-          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-        }
+        scrollToSection(sectionId);
       }
     } else {
-      setIsOpen(false);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Caso seja navegação para Home ('/')
+      if (path === '/') {
+        if (pathname === '/') {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        // Se não for Home, deixa o Link fazer a navegação padrão
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
   };
 

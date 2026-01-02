@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import FloatingButtons from './components/Common/FloatingButtons';
@@ -17,6 +17,11 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/local/:location" element={<LocationPage />} />
+            
+            {/* Rotas de Compatibilidade Legado (.html) */}
+            <Route path="/contato.html" element={<Navigate to="/" replace state={{ scrollTo: 'contact' }} />} />
+            <Route path="/index.html" element={<Navigate to="/" replace />} />
+            
             {/* Rota 404 Personalizada */}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

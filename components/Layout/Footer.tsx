@@ -1,13 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { COLORS, CONTACT_INFO } from '../../constants';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Clock, Phone, Mail, ChevronRight } from 'lucide-react';
 import Logo from '../Common/Logo';
 
 const Footer: React.FC = () => {
   const [isOpenNow, setIsOpenNow] = useState(false);
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const checkStatus = () => {
@@ -22,13 +23,36 @@ const Footer: React.FC = () => {
   }, []);
 
   const handleLinkClick = (e: React.MouseEvent, path: string) => {
-    if (path.startsWith('#')) {
-      e.preventDefault();
-      navigate('/');
-      setTimeout(() => {
-        const element = document.querySelector(path);
-        element?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+    e.preventDefault();
+
+    const scrollToSection = (id: string) => {
+      const element = document.getElementById(id);
+      if (element) {
+        const offset = 90;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      }
+    };
+
+    if (path === '/' || path === '#') {
+      if (pathname !== '/') {
+        navigate('/');
+        window.scrollTo(0, 0);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } else if (path.startsWith('#')) {
+      const sectionId = path.substring(1);
+      
+      if (pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          scrollToSection(sectionId);
+        }, 150);
+      } else {
+        scrollToSection(sectionId);
+      }
     }
   };
 
@@ -37,7 +61,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-24">
           <div className="space-y-10">
-            <Link to="/" onClick={(e) => { window.scrollTo({top: 0, behavior: 'smooth'}) }} className="inline-block transform hover:scale-105 transition-transform duration-500">
+            <Link to="/" onClick={(e) => handleLinkClick(e, '/')} className="inline-block transform hover:scale-105 transition-transform duration-500">
               <Logo className="h-[140px] lg:h-[180px]" variant="dark" />
             </Link>
             <p className="text-gray-400 leading-relaxed text-xl font-medium">
@@ -64,7 +88,7 @@ const Footer: React.FC = () => {
             <h3 className="text-3xl font-black underline decoration-rose-600 decoration-4 underline-offset-8">Links Rápidos</h3>
             <ul className="space-y-5 text-gray-400 text-xl">
               {[
-                { name: 'Início', path: '#' },
+                { name: 'Início', path: '/' },
                 { name: 'Serviços NR-17', path: '#solutions' },
                 { name: 'Perguntas Frequentes', path: '#faq' },
                 { name: 'Fale Conosco', path: '#contact' }
