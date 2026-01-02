@@ -11,33 +11,88 @@ import FAQ from '../components/Home/FAQ';
 import ContactForm from '../components/Home/ContactForm';
 import Associations from '../components/Home/Associations';
 import { ErgonomiaSection } from '../components/Home/ErgonomiaSection';
-import { COLORS, BAIRROS, CIDADES_RMC } from '../constants';
+import { COLORS, BAIRROS, CIDADES_RMC, CONTACT_INFO } from '../constants';
 import { Link } from 'react-router-dom';
+import { Zap, ShieldCheck, ArrowRight } from 'lucide-react';
+import EnhancedSEO from '../components/Common/EnhancedSEO';
 
 const HomePage: React.FC = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ErghoPrev",
+    "url": "https://www.erghoprev.com.br",
+    "logo": "https://www.erghoprev.com.br/logo-coreta.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+55-41-99780-1951",
+      "contactType": "customer service",
+      "areaServed": "BR",
+      "availableLanguage": "Portuguese"
+    },
+    "sameAs": [
+      "https://www.instagram.com/erghoprev",
+      "https://www.facebook.com/erghoprev"
+    ]
+  };
+
   return (
     <div className="flex flex-col">
+      <EnhancedSEO 
+        title="ErghoPrev | Análise Ergonômica do Trabalho (AET) e NR-17 em Curitiba"
+        description="Especialistas em Ergonomia, Laudos NR-17, AET e Saúde Ocupacional. Atendemos Curitiba e Região com soluções completas para evitar multas e melhorar a produtividade."
+        canonicalUrl="https://www.erghoprev.com.br/"
+        keywords="ergonomia curitiba, nr17, analise ergonomica do trabalho, laudo ergonomico, aet, saude ocupacional"
+        schema={schema}
+      />
+
       <Hero />
       <Solutions />
       
-      <section className="py-20 relative overflow-hidden" style={{ backgroundColor: COLORS.secondary }}>
+      <section className="py-24 relative overflow-hidden bg-[#0f172a]">
          <div className="container mx-auto px-4 relative z-10">
-            <div className="bg-white p-12 lg:p-20 rounded-[3rem] shadow-2xl text-center max-w-5xl mx-auto transform hover:scale-[1.01] transition-transform">
-               <h2 className="text-3xl lg:text-5xl font-black mb-8" style={{ color: COLORS.primary }}>
-                 Descubra como tornar sua empresa mais produtiva!
+            <div className="bg-gradient-to-br from-blue-900 to-blue-950 p-12 lg:p-24 rounded-[4rem] shadow-2xl text-center max-w-6xl mx-auto border-t border-white/10 relative group">
+               <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 bg-rose-500 rounded-3xl flex items-center justify-center shadow-2xl rotate-12 group-hover:rotate-0 transition-transform duration-500">
+                  <Zap className="text-white" size={48} fill="currentColor" />
+               </div>
+               
+               <h2 className="text-3xl lg:text-6xl font-black mb-10 text-white leading-tight tracking-tighter">
+                 Não deixe sua empresa no escuro. <br />
+                 <span className="text-rose-500">Regularize sua Ergonomia hoje!</span>
                </h2>
-               <a href="#contact" className="inline-block px-12 py-5 bg-emerald-500 text-white font-black text-xl rounded-full shadow-xl hover:bg-emerald-600 transition-all">
-                 Solicite uma Proposta Agora
-               </a>
+               <p className="text-xl lg:text-3xl text-blue-200 mb-16 max-w-4xl mx-auto font-medium leading-relaxed">
+                 Evite multas de até R$ 6.000,00 por funcionário. A ErghoPrev é o seu parceiro estratégico para garantir que cada detalhe da sua empresa esteja em conformidade com a lei.
+               </p>
+               
+               <div className="flex flex-wrap justify-center gap-6 lg:gap-10">
+                 <a 
+                   href={CONTACT_INFO.whatsappBase} 
+                   className="inline-flex items-center gap-4 px-14 py-7 bg-emerald-500 text-white font-black text-2xl rounded-3xl shadow-2xl hover:bg-emerald-600 transition-all hover:-translate-y-2 active:scale-95 group/btn"
+                 >
+                   Falar com Especialista Já
+                   <ArrowRight className="group-hover/btn:translate-x-2 transition-transform" />
+                 </a>
+                 <a 
+                   href="#contact" 
+                   className="inline-flex items-center gap-4 px-14 py-7 bg-white/10 text-white font-black text-2xl rounded-3xl border-2 border-white/20 hover:bg-white hover:text-blue-900 transition-all active:scale-95"
+                 >
+                   Ver Serviços
+                 </a>
+               </div>
+
+               <div className="mt-16 flex items-center justify-center gap-8 text-blue-300 opacity-60">
+                 <div className="flex items-center gap-2"><ShieldCheck size={20}/> NR-17</div>
+                 <div className="flex items-center gap-2"><ShieldCheck size={20}/> eSocial</div>
+                 <div className="flex items-center gap-2"><ShieldCheck size={20}/> PGR/GRO</div>
+               </div>
             </div>
          </div>
-         <div className="absolute top-0 right-0 w-64 h-64 bg-rose-400 opacity-20 rounded-full -mr-20 -mt-20"></div>
-         <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-300 opacity-20 rounded-full -ml-32 -mb-32"></div>
+         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] -mr-48 -mt-48"></div>
+         <div className="absolute bottom-0 left-0 w-96 h-96 bg-rose-500/10 rounded-full blur-[120px] -ml-48 -mb-48"></div>
       </section>
 
       <ServicesGrid />
       
-      {/* Nova Seção Interativa */}
       <ErgonomiaSection />
 
       <Timeline />
@@ -47,7 +102,6 @@ const HomePage: React.FC = () => {
       <FAQ />
       <Associations />
 
-      {/* SEO Locations Index */}
       <section className="py-24 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">

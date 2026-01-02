@@ -26,11 +26,11 @@ const ContactForm: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           <div className="lg:w-1/2">
             <h2 className="text-4xl lg:text-6xl font-black mb-8" style={{ color: COLORS.primary }}>
-              O Próximo Passo Para <br />
-              Sua <span style={{ color: COLORS.accent }}>Conformidade Legal!</span>
+              Garante sua <br />
+              <span style={{ color: COLORS.accent }}>Conformidade Legal Hoje!</span>
             </h2>
-            <p className="text-xl text-gray-700 mb-10 leading-relaxed">
-              Não deixe sua empresa vulnerável a fiscalizações. Preencha agora para receber um diagnóstico preliminar e garantir que sua gestão ergonômica esteja em dia com a NR-17.
+            <p className="text-xl text-gray-700 mb-10 leading-relaxed font-medium">
+              Não espere a fiscalização bater na sua porta. Preencha o formulário e receba um diagnóstico especializado para blindar sua empresa contra riscos ergonômicos.
             </p>
             
             <div className="space-y-6">
@@ -39,7 +39,7 @@ const ContactForm: React.FC = () => {
                   <i className="fas fa-phone-alt"></i>
                 </div>
                 <div>
-                  <p className="text-gray-500 font-bold uppercase tracking-wider text-sm">Central de Atendimento</p>
+                  <p className="text-gray-500 font-bold uppercase tracking-wider text-sm">Falar Imediatamente</p>
                   <p className="text-xl font-black text-blue-900">{CONTACT_INFO.phone}</p>
                 </div>
               </a>
@@ -48,7 +48,7 @@ const ContactForm: React.FC = () => {
                   <i className="fas fa-envelope"></i>
                 </div>
                 <div>
-                  <p className="text-gray-500 font-bold uppercase tracking-wider text-sm">Dúvidas Técnicas</p>
+                  <p className="text-gray-500 font-bold uppercase tracking-wider text-sm">E-mail Corporativo</p>
                   <p className="text-xl font-black text-blue-900">{CONTACT_INFO.email}</p>
                 </div>
               </a>
@@ -57,8 +57,8 @@ const ContactForm: React.FC = () => {
                   <i className="fab fa-whatsapp"></i>
                 </div>
                 <div>
-                  <p className="text-gray-500 font-bold uppercase tracking-wider text-sm">Suporte Online</p>
-                  <p className="text-xl font-black text-blue-900">Regularizar Empresa Agora</p>
+                  <p className="text-gray-500 font-bold uppercase tracking-wider text-sm">Atendimento VIP</p>
+                  <p className="text-xl font-black text-blue-900">Regularizar Minha Empresa Já</p>
                 </div>
               </a>
             </div>
@@ -69,7 +69,7 @@ const ContactForm: React.FC = () => {
               <div className="absolute top-0 left-0 w-full h-2 bg-rose-500"></div>
               <input 
                 type="text" 
-                placeholder="Nome completo ou da Empresa" 
+                placeholder="Nome da sua Empresa" 
                 required
                 className="w-full px-6 py-4 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:border-blue-400 focus:ring-4 focus:ring-blue-100 transition-all outline-none"
                 value={formData.name}
@@ -86,7 +86,7 @@ const ContactForm: React.FC = () => {
                 />
                 <input 
                   type="tel" 
-                  placeholder="WhatsApp de Contato" 
+                  placeholder="Seu WhatsApp" 
                   required
                   className="w-full px-6 py-4 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:border-blue-400 transition-all outline-none"
                   value={formData.phone}
@@ -99,15 +99,15 @@ const ContactForm: React.FC = () => {
                 value={formData.service}
                 onChange={e => setFormData({...formData, service: e.target.value})}
               >
-                <option value="">O que você precisa hoje?</option>
+                <option value="">Selecione o Serviço de Interesse</option>
                 <option value="Análise Ergonômica">Análise Ergonômica Completa (AET)</option>
-                <option value="Laudo Ergonômico">Laudo Ergonômico (LET)</option>
-                <option value="Treinamentos">Treinamentos NR-17 / SIPAT</option>
-                <option value="Projeto Ergonômico">Consultoria de Projeto</option>
-                <option value="Adequação eSocial">Adequação eSocial / PGR</option>
+                <option value="Laudo Ergonômico">Laudo Ergonômico Técnico (LET)</option>
+                <option value="Treinamentos">Treinamentos e Palestras NR-17</option>
+                <option value="Projeto Ergonômico">Design de Projetos e Layouts</option>
+                <option value="Adequação eSocial">Suporte eSocial e PGR</option>
               </select>
               <textarea 
-                placeholder="Descreva brevemente o cenário da sua empresa..." 
+                placeholder="Em que podemos te ajudar hoje?" 
                 rows={4} 
                 required
                 className="w-full px-6 py-4 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:border-blue-400 transition-all outline-none"
@@ -121,9 +121,9 @@ const ContactForm: React.FC = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[200%] skew-x-[-25deg] group-hover:animate-[glint_1.5s_ease-in-out_infinite]"></div>
                 <i className="fab fa-whatsapp"></i>
-                Solicitar Diagnóstico Especializado
+                Solicitar Consultoria Técnica Agora
               </button>
-              <p className="text-center text-xs text-gray-400 font-bold uppercase tracking-tighter">Resposta em até 24h úteis</p>
+              <p className="text-center text-xs text-gray-400 font-bold uppercase tracking-tighter">Prioridade Total para sua Empresa</p>
             </form>
           </div>
         </div>

@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
       <ParallaxBackground>
         <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="mb-6 lg:mb-8 inline-block px-6 py-2 rounded-full bg-white/50 backdrop-blur-md border border-white/60 text-blue-900 text-xs lg:text-sm font-black uppercase tracking-[0.2em] animate-bounce shadow-sm">
-            Autoridade Máxima em NR-17
+            Autoridade Absoluta em NR-17
           </div>
           
           <h1 className="text-3xl sm:text-4xl lg:text-8xl font-black mb-6 lg:mb-10 min-h-[2.5em] sm:min-h-[1.5em] leading-[1.1] tracking-tighter px-2" style={{ color: COLORS.primary }}>
@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
           </h1>
           
           <p className="text-lg lg:text-2xl text-gray-700 max-w-3xl mx-auto mb-10 lg:mb-16 font-medium leading-relaxed px-4">
-            Proteja sua empresa contra multas e processos. Reduza o absenteísmo e potencialize a produtividade com gestão ergonômica de elite.
+            Pare de perder dinheiro com multas e processos. Proteja seu patrimônio e garanta a produtividade máxima com a gestão ergonômica da ErghoPrev.
           </p>
 
           <div className="flex flex-col items-center gap-6 lg:gap-10">
@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
               >
                 <div className="text-2xl lg:text-3xl bg-blue-100 w-12 h-12 lg:w-14 lg:h-14 rounded-xl flex items-center justify-center">📞</div>
                 <div className="text-left">
-                  <p className="text-[10px] lg:text-xs font-bold text-gray-400 uppercase tracking-widest">Falar Agora</p>
+                  <p className="text-[10px] lg:text-xs font-bold text-gray-400 uppercase tracking-widest">Falar com Especialista</p>
                   <p className="text-xl lg:text-2xl font-black whitespace-nowrap" style={{ color: COLORS.primary }}>{CONTACT_INFO.phone}</p>
                 </div>
               </a>
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
               className="group relative overflow-hidden inline-flex items-center justify-center w-full sm:w-auto px-10 lg:px-14 py-5 lg:py-7 font-black text-white text-lg lg:text-2xl transition-all duration-300 bg-emerald-500 rounded-2xl lg:rounded-full hover:bg-emerald-600 shadow-[0_20px_50px_rgba(16,185,129,0.3)] hover:shadow-[0_20px_50px_rgba(16,185,129,0.5)] hover:-translate-y-2 active:scale-95"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[200%] skew-x-[-25deg] group-hover:animate-[glint_1.5s_ease-in-out_infinite]"></div>
-              Garantir Diagnóstico Gratuito
+              Garantir Diagnóstico Gratuito Agora
               <i className="fas fa-chevron-right ml-4 group-hover:translate-x-2 transition-transform"></i>
             </a>
           </div>

@@ -1,11 +1,12 @@
 
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import FloatingButtons from './components/Common/FloatingButtons';
 import HomePage from './pages/HomePage';
 import LocationPage from './pages/LocationPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const App: React.FC = () => {
   return (
@@ -16,8 +17,8 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/local/:location" element={<LocationPage />} />
-            {/* Fallback para rotas não encontradas redirecionando para home */}
-            <Route path="*" element={<HomePage />} />
+            {/* Rota 404 Personalizada */}
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer />

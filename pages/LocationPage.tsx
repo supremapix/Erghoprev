@@ -1,51 +1,46 @@
 
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import VideoSection from '../components/Home/VideoSection';
 import Testimonials from '../components/Home/Testimonials';
 import FAQ from '../components/Home/FAQ';
 import ContactForm from '../components/Home/ContactForm';
-import { CONTACT_INFO, ASSETS, BAIRROS, COLORS } from '../constants';
+import { CONTACT_INFO, ASSETS, BAIRROS } from '../constants';
 import { MessageSquare, ShieldCheck, Zap } from 'lucide-react';
+import EnhancedSEO from '../components/Common/EnhancedSEO';
 
 const LocationPage: React.FC = () => {
   const { location } = useParams<{ location: string }>();
   const decodedLocation = location ? decodeURIComponent(location) : 'Curitiba';
   const isBairro = useMemo(() => BAIRROS.includes(decodedLocation), [decodedLocation]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    const domain = "https://www.erghoprev.com.br";
-    const path = `/#/local/${encodeURIComponent(decodedLocation)}`;
-    const fullUrl = `${domain}${path}`;
-
-    const title = `Análise Ergonômica em ${decodedLocation} | Especialista NR-17 | ErghoPrev`;
-    const description = `Consultoria especializada em Ergonomia (NR-17), AET e LET em ${decodedLocation}. Atendimento técnico para empresas em ${decodedLocation} focado em produtividade e eSocial. Garantia de conformidade técnica em Curitiba e Região Metropolitana.`;
-    
-    document.title = title;
-    
-    const updateMeta = (name: string, content: string) => {
-      let meta = document.querySelector(`meta[name="${name}"]`);
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute('name', name);
-        document.head.appendChild(meta);
-      }
-      meta.setAttribute('content', content);
-    };
-
-    updateMeta('description', description);
-    updateMeta('keywords', `ergonomia ${decodedLocation}, NR-17 ${decodedLocation}, AET ${decodedLocation}, laudo ergonômico ${decodedLocation}, saúde ocupacional ${decodedLocation}, consultoria ergonomia Curitiba`);
-    
-    let link: HTMLLinkElement | null = document.querySelector('link[rel="canonical"]');
-    if (!link) {
-      link = document.createElement('link');
-      link.setAttribute('rel', 'canonical');
-      document.head.appendChild(link);
-    }
-    link.setAttribute('href', fullUrl);
-
-  }, [decodedLocation]);
+  // SEO Data Construction
+  const title = `Análise Ergonômica em ${decodedLocation} | Especialista NR-17 | ErghoPrev`;
+  const description = `Consultoria especializada em Ergonomia (NR-17), AET e LET em ${decodedLocation}. Atendimento técnico para empresas em ${decodedLocation} focado em produtividade e eSocial. Garantia de conformidade técnica em Curitiba e Região Metropolitana.`;
+  const canonicalUrl = `https://www.erghoprev.com.br/local/${encodeURIComponent(decodedLocation)}`;
+  
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": `ErghoPrev ${decodedLocation}`,
+    "image": "https://www.erghoprev.com.br/logo-coreta.png",
+    "telephone": "+55-41-99780-1951",
+    "email": "contato@erghoprev.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": isBairro ? "Curitiba" : decodedLocation,
+      "addressRegion": "PR",
+      "addressCountry": "BR",
+      "streetAddress": isBairro ? `Atendimento em ${decodedLocation}` : undefined
+    },
+    "url": canonicalUrl,
+    "description": description,
+    "areaServed": {
+      "@type": "Place",
+      "name": decodedLocation
+    },
+    "priceRange": "$$"
+  };
 
   const topics = [
     { title: `Ergonomia NR-17 em ${decodedLocation}`, img: ASSETS.topics[0] },
@@ -86,6 +81,14 @@ const LocationPage: React.FC = () => {
 
   return (
     <div className="flex flex-col">
+      <EnhancedSEO 
+        title={title}
+        description={description}
+        canonicalUrl={canonicalUrl}
+        keywords={`ergonomia ${decodedLocation}, nr17, analise ergonomica ${decodedLocation}, aet, laudo`}
+        schema={localBusinessSchema}
+      />
+
       <section className="bg-[#0f172a] py-32 lg:py-48 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img src={ASSETS.topics[1]} className="w-full h-full object-cover blur-sm" alt="Fundo Decorativo" />
