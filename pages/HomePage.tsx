@@ -11,7 +11,7 @@ import Testimonials from '../components/Home/Testimonials';
 import FAQ from '../components/Home/FAQ';
 import ContactForm from '../components/Home/ContactForm';
 import Associations from '../components/Home/Associations';
-import { ErgonomiaSection } from '../components/Home/ErgonomiaSection';
+import HomeOffice from '../components/Home/HomeOffice';
 import { COLORS, BAIRROS, CIDADES_RMC, CONTACT_INFO } from '../constants';
 import { Link } from 'react-router-dom';
 import { Zap, ShieldCheck, ArrowRight } from 'lucide-react';
@@ -95,7 +95,7 @@ const HomePage: React.FC = () => {
 
       <ServicesGrid />
       
-      <ErgonomiaSection />
+      <HomeOffice />
 
       <Timeline />
       <VideoSection />
