@@ -184,6 +184,29 @@ export const ErgonomiaSection: React.FC = () => {
     document.body.style.overflow = 'hidden';
   };
 
+  const handleContactClick = () => {
+    if (!selectedStat) return;
+    
+    closeModal();
+    
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const event = new CustomEvent('erghoprev:select-service', { 
+        detail: `Diferencial Ergonomia: ${selectedStat.title}` 
+      });
+      window.dispatchEvent(event);
+
+      const offset = 100;
+      const elementPosition = contactSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const stats: StatItem[] = [
     {
       percentage: 86,
@@ -323,14 +346,14 @@ export const ErgonomiaSection: React.FC = () => {
                 </div>
               </div>
 
-              <a 
-                href={CONTACT_INFO.whatsappBase + encodeURIComponent(` Gostaria de saber mais sobre: ${selectedStat.title} (Diferencial Ergonomia)`)}
-                target="_blank" rel="noopener noreferrer"
-                className="block w-full py-6 text-white font-black text-2xl rounded-2xl shadow-xl hover:scale-[1.02] active:scale-95 text-center transition-all flex items-center justify-center gap-4"
-                style={{ backgroundColor: COLORS.primary }}
+              <button 
+                onClick={handleContactClick}
+                className="w-full py-6 text-white font-black text-2xl rounded-2xl shadow-xl hover:scale-[1.02] active:scale-95 text-center transition-all flex items-center justify-center gap-4"
+                style={{ backgroundColor: '#10b981' }}
               >
-                <i className="fab fa-whatsapp"></i> Falar com Especialista
-              </a>
+                <i className="fab fa-whatsapp text-3xl"></i>
+                Solicitar Proposta via WhatsApp
+              </button>
             </div>
           </div>
         </div>
