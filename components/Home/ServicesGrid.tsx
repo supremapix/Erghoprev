@@ -46,6 +46,23 @@ const ServicesGrid: React.FC = () => {
     document.body.style.overflow = 'unset';
   };
 
+  const handleScrollToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById('contact');
+    if (element) {
+      const offset = 100;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section id="solutions" className="py-16 lg:py-32 relative overflow-hidden" style={{ backgroundColor: '#93c5fd' }}>
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-400 opacity-20 rounded-full blur-[120px] -mr-64 -mt-64"></div>
@@ -53,12 +70,27 @@ const ServicesGrid: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 lg:mb-20 max-w-5xl mx-auto">
           <SpinalColumnAnimation />
+          
           <h2 className="text-3xl sm:text-4xl lg:text-7xl font-black mb-6 text-blue-950 tracking-tighter leading-[1.1] animate-fade-in-up">
-            Otimize o fluxo de trabalho da sua empresa e a torne mais segura e eficiente.
+            Nossos Serviços em Ergonomia
           </h2>
-          <p className="text-lg lg:text-2xl text-blue-900/80 font-bold max-w-3xl mx-auto">
+          
+          <p className="text-xl lg:text-3xl text-blue-900/80 font-bold max-w-4xl mx-auto mb-8 leading-tight">
+            Otimize o fluxo de trabalho da sua empresa e a torne mais segura e eficiente.
+          </p>
+
+          <p className="text-lg lg:text-xl text-blue-900/70 font-medium max-w-3xl mx-auto mb-10">
             Soluções completas em Ergonomia NR-17 para reduzir passivos e aumentar a performance.
           </p>
+
+          <a 
+            href="#contact"
+            onClick={handleScrollToContact}
+            className="inline-flex items-center gap-3 px-10 py-5 bg-rose-500 text-white font-black text-xl rounded-full shadow-xl hover:bg-rose-600 hover:scale-105 transition-all active:scale-95 group"
+          >
+            Descubra como podemos ajudar
+            <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
         
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start max-w-7xl mx-auto">
