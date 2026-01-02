@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { COLORS, CONTACT_INFO } from '../../constants';
 
 const ContactForm: React.FC = () => {
@@ -10,6 +10,23 @@ const ContactForm: React.FC = () => {
     service: '',
     message: ''
   });
+
+  // Listener para preenchimento automático via outros componentes
+  useEffect(() => {
+    const handleServiceSelect = (e: CustomEvent) => {
+      setFormData(prev => ({ 
+        ...prev, 
+        service: e.detail,
+        message: `Olá, gostaria de mais informações sobre ${e.detail}.`
+      }));
+    };
+
+    window.addEventListener('erghoprev:select-service', handleServiceSelect as EventListener);
+    
+    return () => {
+      window.removeEventListener('erghoprev:select-service', handleServiceSelect as EventListener);
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -105,6 +122,7 @@ const ContactForm: React.FC = () => {
                 <option value="Treinamentos">Treinamentos e Palestras NR-17</option>
                 <option value="Projeto Ergonômico">Design de Projetos e Layouts</option>
                 <option value="Adequação eSocial">Suporte eSocial e PGR</option>
+                <option value="Consultoria Personalizada">Consultoria Personalizada</option>
               </select>
               <textarea 
                 placeholder="Em que podemos te ajudar hoje?" 

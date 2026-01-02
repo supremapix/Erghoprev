@@ -1,12 +1,11 @@
-
 {
-  "redirects": [
-    { "source": "/contato.html", "destination": "/#contact", "permanent": true },
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/sobre.html", "destination": "/#solutions", "permanent": true },
-    { "source": "/servicos.html", "destination": "/#solutions", "permanent": true }
-  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "redirects": [
+    { "source": "/contato.html", "destination": "/#contact", "permanent": true },
+    { "source": "/servicos.html", "destination": "/#solutions", "permanent": true },
+    { "source": "/sobre.html", "destination": "/#solutions", "permanent": true },
+    { "source": "/index.html", "destination": "/", "permanent": true }
   ]
 }

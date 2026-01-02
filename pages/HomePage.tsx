@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Hero from '../components/Home/Hero';
+import FeaturedServices from '../components/Home/FeaturedServices';
 import Solutions from '../components/Home/Solutions';
 import ServicesGrid from '../components/Home/ServicesGrid';
 import Timeline from '../components/Home/Timeline';
@@ -47,6 +48,7 @@ const HomePage: React.FC = () => {
       />
 
       <Hero />
+      <FeaturedServices />
       <Solutions />
       
       <section className="py-24 relative overflow-hidden bg-[#0f172a]">
