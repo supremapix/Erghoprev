@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-24">
           <div className="space-y-10">
             <Link to="/" onClick={(e) => handleLinkClick(e, '/')} className="inline-block transform hover:scale-105 transition-transform duration-500">
-              <Logo className="h-[140px] lg:h-[180px]" variant="light" src="/logo-sem-fundo-footer.png" />
+              <Logo className="h-[140px] lg:h-[180px]" variant="light" />
             </Link>
             <p className="text-gray-400 leading-relaxed text-xl font-medium">
               Líder em gestão ergonômica e saúde ocupacional estratégica. Atendimento especializado para Curitiba, RMC e todo o Brasil.
