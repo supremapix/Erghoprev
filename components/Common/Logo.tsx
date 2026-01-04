@@ -4,15 +4,16 @@ import React from 'react';
 interface LogoProps {
   className?: string;
   variant?: 'light' | 'dark';
+  src?: string;
 }
 
-const Logo: React.FC<LogoProps> = ({ className = "h-32", variant = 'light' }) => {
+const Logo: React.FC<LogoProps> = ({ className = "h-32", variant = 'light', src = "/logomarca-header-rodape-nova.png" }) => {
   return (
     <div className={`flex items-center logo-container ${className} select-none relative group max-w-full overflow-hidden`}>
       <div className="relative overflow-visible h-full flex items-center">
         {/* Usando a logo oficial fornecida */}
         <img
-          src="/logomarca-header-rodape-nova.png"
+          src={src}
           alt="ErghoPrev Logo" 
           className={`logo-img w-auto h-full max-w-full object-contain transition-all duration-700 ${variant === 'dark' ? 'brightness-0 invert' : ''}`}
           style={{ 
