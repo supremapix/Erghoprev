@@ -16,6 +16,11 @@ topButton.addEventListener('click',()=>{window.scrollTo({top:0,behavior:matchMed
 function track(name,detail={}){window.dispatchEvent(new CustomEvent('erghoprev:interaction',{detail:{event:name,...detail}}))}
 document.querySelectorAll('[data-event]').forEach(a=>a.addEventListener('click',()=>track(a.dataset.event)));
 const form=$('#contact-form');
+if(form){
+ const clearPreparedMessage=()=>{const status=$('#form-status');if(status.textContent)status.replaceChildren('Os dados foram alterados. Prepare novamente a mensagem antes de continuar.');};
+ form.addEventListener('input',clearPreparedMessage);
+ form.addEventListener('change',clearPreparedMessage);
+}
 if(form)form.addEventListener('submit',e=>{
  e.preventDefault();if(!form.reportValidity())return;
  const data=new FormData(form),name=String(data.get('name')||'').trim(),message=String(data.get('message')||'').trim();
